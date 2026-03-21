@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getHistory, getActivePatient } from "../utils/storage";
+import { getHistory, getActivePatient } from "../../utils/storage";
 
 const API_BASE = process.env.REACT_APP_API_BASE || "http://127.0.0.1:8001";
 
@@ -19,7 +19,7 @@ const History = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-emerald-50 p-6">
-      <div className="max-w-6xl mx-auto">
+      <div>
         <div className="flex items-center justify-between mb-4">
           <div>
             <h1 className="text-3xl font-bold text-sky-900">Screening history</h1>

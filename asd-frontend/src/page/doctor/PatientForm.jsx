@@ -1,9 +1,9 @@
 // src/page/PatientForm.jsx
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useActivePatient } from "../context/ActivePatientContext";
-import i18n from "../i18n";
-import { getPatients, savePatients } from "../utils/storage";
+import { useActivePatient } from "../../context/ActivePatientContext";
+import i18n from "../../i18n";
+import { getPatients, savePatients } from "../../utils/storage";
 
 const emptyPatient = {
   name: "",
@@ -285,7 +285,7 @@ export default function PatientForm() {
 
   return (
     <div className="min-h-[calc(100vh-64px)]">
-      <div className="max-w-5xl mx-auto px-4 py-8">
+      <div className="px-4 py-8">
         <div className="flex items-start justify-between mb-6">
           <div>
             <h1 className="text-3xl font-bold text-slate-900">

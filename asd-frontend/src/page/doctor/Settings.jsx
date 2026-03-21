@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { getPatients, savePatients } from "../utils/storage";
-import i18n from "../i18n";
+import { getPatients, savePatients } from "../../utils/storage";
+import i18n from "../../i18n";
 
 const LANG_KEY = "app_lang";
 const THEME_KEY = "app_theme";
@@ -134,8 +134,7 @@ export default function Settings() {
   }
 
   return (
-    <div className="p-6">
-      <div className="max-w-4xl">
+    <div className="p-6 min-h-full bg-gray-50 dark:bg-gray-950">
         <h1 className="text-3xl font-semibold text-slate-900">{i18n.t("settings_title")}</h1>
         <p className="text-sm text-slate-500 mt-1">{i18n.t("settings_subtitle")}</p>
 
@@ -147,19 +146,19 @@ export default function Settings() {
 
             <div className="mt-4 flex gap-3">
               <button
-                className={`px-3 py-2 rounded-md ${lang === "en" ? "bg-sky-600 text-white" : "bg-slate-100"}`}
+                className={`px-4 py-2 rounded-xl font-semibold text-sm transition-colors ${lang === "en" ? "bg-emerald-600 text-white shadow-sm" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
                 onClick={() => handleLangClick("en")}
               >
                 {i18n.t("language_english")}
               </button>
               <button
-                className={`px-3 py-2 rounded-md ${lang === "hi" ? "bg-sky-600 text-white" : "bg-slate-100"}`}
+                className={`px-4 py-2 rounded-xl font-semibold text-sm transition-colors ${lang === "hi" ? "bg-emerald-600 text-white shadow-sm" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
                 onClick={() => handleLangClick("hi")}
               >
                 {i18n.t("language_hindi")}
               </button>
               <button
-                className={`px-3 py-2 rounded-md ${lang === "mr" ? "bg-sky-600 text-white" : "bg-slate-100"}`}
+                className={`px-4 py-2 rounded-xl font-semibold text-sm transition-colors ${lang === "mr" ? "bg-emerald-600 text-white shadow-sm" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
                 onClick={() => handleLangClick("mr")}
               >
                 {i18n.t("language_marathi")}
@@ -173,19 +172,19 @@ export default function Settings() {
 
             <div className="mt-4 flex gap-3">
               <button
-                className={`px-3 py-2 rounded-md ${theme === "clinical" ? "bg-sky-600 text-white" : "bg-slate-100"}`}
+                className={`px-4 py-2 rounded-xl font-semibold text-sm transition-colors ${theme === "clinical" ? "bg-emerald-600 text-white shadow-sm" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
                 onClick={() => handleThemeClick("clinical")}
               >
                 {i18n.t("appearance_clinical")}
               </button>
               <button
-                className={`px-3 py-2 rounded-md ${theme === "dark" ? "bg-sky-600 text-white" : "bg-slate-100"}`}
+                className={`px-4 py-2 rounded-xl font-semibold text-sm transition-colors ${theme === "dark" ? "bg-emerald-600 text-white shadow-sm" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
                 onClick={() => handleThemeClick("dark")}
               >
                 {i18n.t("appearance_dark")}
               </button>
               <button
-                className={`px-3 py-2 rounded-md ${theme === "contrast" ? "bg-sky-600 text-white" : "bg-slate-100"}`}
+                className={`px-4 py-2 rounded-xl font-semibold text-sm transition-colors ${theme === "contrast" ? "bg-emerald-600 text-white shadow-sm" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
                 onClick={() => handleThemeClick("contrast")}
               >
                 {i18n.t("appearance_contrast")}
@@ -205,7 +204,7 @@ export default function Settings() {
               <input value={behavUrl} onChange={(e) => setBehavUrl(e.target.value)} placeholder="http://127.0.0.1:8000" className="border rounded-md px-3 py-2 w-full" />
 
               <div className="flex gap-3 mt-3">
-                <button onClick={runHealthChecks} className="px-4 py-2 bg-sky-600 text-white rounded-md">Run health checks</button>
+                <button onClick={runHealthChecks} className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-semibold text-sm transition-colors">Run health checks</button>
                 <div className="flex items-center gap-4">
                   <div className="text-sm">MRI: <span className="font-medium">{healthStatus.mri ?? "n/a"}</span></div>
                   <div className="text-sm">Behaviour: <span className="font-medium">{healthStatus.behavi ?? "n/a"}</span></div>
@@ -241,13 +240,10 @@ export default function Settings() {
           <div className="flex items-center justify-between">
             <div className="text-sm text-slate-500">{statusMessage}</div>
             <div className="flex items-center gap-3">
-              <button onClick={saveAll} className="px-4 py-2 bg-sky-600 text-white rounded-md">{i18n.t("save")}</button>
+              <button onClick={saveAll} className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-semibold text-sm transition-colors">{i18n.t("save")}</button>
               <button onClick={revert} className="px-4 py-2 rounded-md border">{i18n.t("revert")}</button>
             </div>
-          </div>
-
-        </div>
-      </div>
+          </div>        </div>
     </div>
   );
 }

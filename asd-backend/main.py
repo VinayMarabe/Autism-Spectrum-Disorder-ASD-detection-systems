@@ -31,7 +31,13 @@ except (ImportError, ModuleNotFoundError) as e:
 
 from config import get_settings
 from database import Base, SessionLocal, engine
-from schemas import ChatHistoryMessage, ChatRequest, ChatResponse, PatientResponse, PatientUpsert, ScreeningPayload
+from schemas import (
+    ChatHistoryMessage, ChatRequest, ChatResponse, PatientResponse, PatientUpsert, ScreeningPayload,
+    AppointmentCreate, AppointmentResponse, AppointmentUpdateStatus,
+    NotificationCreate, NotificationResponse,
+    HumanChatMessageCreate, HumanChatMessageResponse
+)
+from models import Appointment, Notification, ChatMessage
 from services import patient_service
 from services.chat_service import ChatService
 from services.rag_service import RAGService
@@ -253,13 +259,13 @@ def health_check():
     }
 
 
-@app.get("/patients", response_model=list[PatientResponse])
+@app.get("/api/patients", response_model=list[PatientResponse])
 def list_patients_endpoint(db=Depends(get_db)):
     patients = patient_service.list_patients(db)
     return [serialize_patient(p) for p in patients]
 
 
-@app.post("/patients", response_model=PatientResponse)
+@app.post("/api/patients", response_model=PatientResponse)
 def upsert_patient_endpoint(payload: PatientUpsert, db=Depends(get_db)):
     patient = patient_service.upsert_patient(
         db,
@@ -273,7 +279,7 @@ def upsert_patient_endpoint(payload: PatientUpsert, db=Depends(get_db)):
     return serialize_patient(patient)
 
 
-@app.get("/patients/{patient_id}", response_model=PatientResponse)
+@app.get("/api/patients/{patient_id}", response_model=PatientResponse)
 def get_patient_endpoint(patient_id: str, db=Depends(get_db)):
     patient = patient_service.get_patient(db, patient_id)
     if not patient:
@@ -281,7 +287,7 @@ def get_patient_endpoint(patient_id: str, db=Depends(get_db)):
     return serialize_patient(patient)
 
 
-@app.get("/patients/{patient_id}/chat", response_model=list[ChatHistoryMessage])
+@app.get("/api/patients/{patient_id}/chat", response_model=list[ChatHistoryMessage])
 def get_patient_chat(patient_id: str, db=Depends(get_db)):
     history = patient_service.get_chat_history(db, patient_id, limit=30)
     return [
@@ -295,7 +301,7 @@ def get_patient_chat(patient_id: str, db=Depends(get_db)):
     ]
 
 
-@app.post("/patients/{patient_id}/chat", response_model=ChatResponse)
+@app.post("/api/patients/{patient_id}/chat", response_model=ChatResponse)
 def send_chat_message(patient_id: str, payload: ChatRequest, db=Depends(get_db)):
     if chat_service is None:
         raise HTTPException(status_code=503, detail="Chat service not configured (missing LLM key)")
@@ -316,7 +322,7 @@ def send_chat_message(patient_id: str, payload: ChatRequest, db=Depends(get_db))
     return response
 
 
-@app.post("/patients/{patient_id}/screenings", response_model=PatientResponse)
+@app.post("/api/patients/{patient_id}/screenings", response_model=PatientResponse)
 def add_screening(patient_id: str, payload: ScreeningPayload, db=Depends(get_db)):
     patient = patient_service.get_patient(db, patient_id)
     if not patient:
@@ -343,7 +349,7 @@ def add_screening(patient_id: str, payload: ScreeningPayload, db=Depends(get_db)
     return serialize_patient(patient)
 
 
-@app.post("/asd_analysis")
+@app.post("/api/asd_analysis")
 async def asd_analysis(
     mri: UploadFile = File(...),
     patient_id: str = Form("UNKNOWN"),
@@ -644,6 +650,152 @@ async def download_report(filename: str):
         filename=filename,
         media_type="text/html",
         headers={"Content-Disposition": f"attachment; filename={filename}"}
+    )
+
+
+# ==========================================
+# APPOINTMENTS API
+# ==========================================
+
+@app.post("/api/appointments", response_model=AppointmentResponse)
+def create_appointment(payload: AppointmentCreate, db=Depends(get_db)):
+    db_appt = Appointment(
+        patient_id=payload.patient_id,
+        doctor_id=payload.doctor_id,
+        date=payload.date,
+        time=payload.time,
+        symptoms=payload.symptoms,
+        status="pending"
+    )
+    db.add(db_appt)
+    db.commit()
+    db.refresh(db_appt)
+    
+    # Auto-create notification for doctor
+    notif = Notification(
+        user_id=payload.doctor_id,
+        role="doctor",
+        title="New Appointment Request",
+        message=f"Patient {payload.patient_id} requested an appointment for {payload.date} at {payload.time}."
+    )
+    db.add(notif)
+    db.commit()
+    
+    return db_appt
+
+
+@app.get("/api/appointments", response_model=list[AppointmentResponse])
+def get_appointments(role: str, user_id: str, db=Depends(get_db)):
+    if role == "patient":
+        appts = db.query(Appointment).filter(Appointment.patient_id == user_id).all()
+    elif role == "doctor":
+        appts = db.query(Appointment).filter(Appointment.doctor_id == user_id).all()
+    else:
+        appts = []
+    return appts
+
+
+@app.patch("/api/appointments/{appt_id}/status", response_model=AppointmentResponse)
+def update_appointment_status(appt_id: int, payload: AppointmentUpdateStatus, db=Depends(get_db)):
+    appt = db.query(Appointment).filter(Appointment.id == appt_id).first()
+    if not appt:
+        raise HTTPException(status_code=404, detail="Appointment not found")
+    
+    appt.status = payload.status
+    db.commit()
+    db.refresh(appt)
+    
+    # Notify patient
+    notif = Notification(
+        user_id=appt.patient_id,
+        role="patient",
+        title="Appointment Update",
+        message=f"Your appointment on {appt.date} was {payload.status} by the doctor."
+    )
+    db.add(notif)
+    db.commit()
+    
+    return appt
+
+
+# ==========================================
+# NOTIFICATIONS API
+# ==========================================
+
+@app.get("/api/notifications", response_model=list[NotificationResponse])
+def get_notifications(role: str, user_id: str, db=Depends(get_db)):
+    notifs = db.query(Notification).filter(Notification.user_id == user_id, Notification.role == role).order_by(Notification.created_at.desc()).all()
+    return notifs
+
+
+@app.patch("/api/notifications/{notif_id}/read", response_model=NotificationResponse)
+def mark_notification_read(notif_id: int, db=Depends(get_db)):
+    notif = db.query(Notification).filter(Notification.id == notif_id).first()
+    if not notif:
+        raise HTTPException(status_code=404, detail="Not found")
+    notif.is_read = 1
+    db.commit()
+    db.refresh(notif)
+    return notif
+
+
+# ==========================================
+# HUMAN-TO-HUMAN CHAT API
+# ==========================================
+
+@app.get("/api/chat/messages", response_model=list[HumanChatMessageResponse])
+def get_human_chat_messages(patient_id: str, db=Depends(get_db)):
+    # Get all messages related to this patient_id (bot or human, but we only want human ones right now)
+    msgs = db.query(ChatMessage).filter(ChatMessage.patient_id == patient_id, ChatMessage.sender_role.in_(["patient", "doctor"])).order_by(ChatMessage.created_at.asc()).all()
+    
+    # Map back to HumanChatMessageResponse (which aliases sender_role -> role, but we use sender_role directly)
+    return [
+        HumanChatMessageResponse(
+            id=m.id,
+            patient_id=m.patient_id,
+            sender_role=m.sender_role,
+            recipient_id=m.recipient_id,
+            content=m.content,
+            created_at=m.created_at,
+            sources=m.sources
+        ) for m in msgs
+    ]
+
+
+@app.post("/api/chat/messages", response_model=HumanChatMessageResponse)
+def send_human_chat_message(patient_id: str, payload: HumanChatMessageCreate, db=Depends(get_db)):
+    db_msg = ChatMessage(
+        patient_id=patient_id,
+        sender_role=payload.sender_role,
+        recipient_id=payload.recipient_id,
+        content=payload.content,
+        sources=payload.sources
+    )
+    db.add(db_msg)
+    db.commit()
+    db.refresh(db_msg)
+    
+    # Optionally notify the recipient
+    receiver_role = "doctor" if payload.sender_role == "patient" else "patient"
+    receiver_id = payload.recipient_id if payload.recipient_id else "admin"
+    
+    notif = Notification(
+        user_id=receiver_id if receiver_role == "doctor" else patient_id,
+        role=receiver_role,
+        title="New Chat Message",
+        message=f"New message from {'Patient' if payload.sender_role == 'patient' else 'Dr. Admin'}"
+    )
+    db.add(notif)
+    db.commit()
+
+    return HumanChatMessageResponse(
+        id=db_msg.id,
+        patient_id=db_msg.patient_id,
+        sender_role=db_msg.sender_role,
+        recipient_id=db_msg.recipient_id,
+        content=db_msg.content,
+        created_at=db_msg.created_at,
+        sources=db_msg.sources
     )
 
 

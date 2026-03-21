@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getPatients } from "../utils/storage";
-import { useActivePatient } from "../context/ActivePatientContext";
+import { getPatients } from "../../utils/storage";
+import { useActivePatient } from "../../context/ActivePatientContext";
 
 export default function PatientDetails() {
   const { id } = useParams();

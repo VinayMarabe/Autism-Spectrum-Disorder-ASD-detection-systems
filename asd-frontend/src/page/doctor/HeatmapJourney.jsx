@@ -9,8 +9,8 @@ import {
   MessageCircle,
 } from "lucide-react";
 
-import SeverityMeter from "../components/SeverityMeter";
-import i18n from "../i18n";
+import SeverityMeter from "../../components/SeverityMeter";
+import i18n from "../../i18n";
 
 const API_BASE = process.env.REACT_APP_API_BASE || "http://127.0.0.1:8001";
 

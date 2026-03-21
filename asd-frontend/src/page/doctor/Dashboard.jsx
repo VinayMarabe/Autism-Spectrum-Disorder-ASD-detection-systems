@@ -2,10 +2,11 @@
 import React, { useEffect, useState, useMemo } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
-import { getActivePatient, getPatients } from "../utils/storage";
-import { useActivePatient } from "../context/ActivePatientContext";
-import SeverityMeter from "../components/SeverityMeter";
+import { getActivePatient, getPatients } from "../../utils/storage";
+import { useActivePatient } from "../../context/ActivePatientContext";
+import SeverityMeter from "../../components/SeverityMeter";
 
 import {
   Server,
@@ -15,7 +16,7 @@ import {
   Activity,
   UserPlus,
 } from "lucide-react";
-import i18n from "../i18n";
+import i18n from "../../i18n";
 
 const API_BASE = process.env.REACT_APP_API_BASE || "http://127.0.0.1:8001";
 const SITE_NAME = "dr.THYNK";
@@ -277,7 +278,7 @@ export default function Dashboard() {
   const active = storageActive; // keep same behaviour as before
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-gradient-to-b from-sky-50 via-white to-emerald-50">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="min-h-[calc(100vh-64px)] bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-8">
         {/* Header row */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
@@ -352,8 +353,9 @@ export default function Dashboard() {
         {/* Cards row */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-4 gap-6">
           {/* Analytics card */}
-          <div className="bg-white rounded-2xl p-6 border shadow-sm flex flex-col justify-between">
-            <div className="flex items-start gap-3">
+          <motion.div whileHover={{ y: -4 }} className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:shadow-sky-100/50 transition-all flex flex-col justify-between relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-sky-400/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
+            <div className="flex items-start gap-3 relative z-10">
               <BarChart2 size={18} className="text-slate-500 mt-1" />
               <div>
                 <div className="text-xs text-slate-500">
@@ -382,11 +384,12 @@ export default function Dashboard() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Quick actions */}
-          <div className="md:col-span-2 bg-white rounded-2xl p-6 border shadow-sm">
-            <div className="flex items-center gap-3">
+          <motion.div whileHover={{ y: -4 }} className="md:col-span-2 bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:shadow-sky-100/50 transition-all relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-400/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
+            <div className="flex items-center gap-3 relative z-10">
               <UserPlus size={18} className="text-slate-500" />
               <div>
                 <div className="text-xs text-slate-500">
@@ -423,11 +426,12 @@ export default function Dashboard() {
                 {i18n.t("detection_short")}
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* System card */}
-          <div className="bg-white rounded-2xl p-6 border shadow-sm">
-            <div className="flex items-center gap-3">
+          <motion.div whileHover={{ y: -4 }} className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:shadow-sky-100/50 transition-all relative overflow-hidden">
+            <div className="absolute bottom-0 right-0 w-32 h-32 bg-indigo-400/10 rounded-full blur-2xl translate-y-1/2 translate-x-1/2" />
+            <div className="flex items-center gap-3 relative z-10">
               <Server size={18} className="text-slate-500" />
               <div>
                 <div className="text-xs text-slate-500">
@@ -492,7 +496,7 @@ export default function Dashboard() {
                   : "—"}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Recent history */}
@@ -564,6 +568,6 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

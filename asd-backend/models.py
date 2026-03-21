@@ -56,9 +56,38 @@ class ChatMessage(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     patient_id = Column(String, ForeignKey("patients.id"), nullable=False, index=True)
-    role = Column(String, nullable=False)
+    sender_role = Column(String, nullable=False) # 'patient', 'doctor', or 'system'
+    recipient_id = Column(String, nullable=True) # if direct message
     content = Column(Text, nullable=False)
     sources = Column(JSON, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
 
     patient = relationship("Patient", back_populates="chats")
+
+
+class Appointment(Base):
+    __tablename__ = "appointments"
+
+    id = Column(Integer, primary_key=True, index=True)
+    patient_id = Column(String, ForeignKey("patients.id"), nullable=False, index=True)
+    doctor_id = Column(String, nullable=True, default="admin")
+    date = Column(String, nullable=False)
+    time = Column(String, nullable=False)
+    status = Column(String, nullable=False, default="pending") # pending, confirmed, declined, completed
+    symptoms = Column(Text, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    patient = relationship("Patient")
+
+
+class Notification(Base):
+    __tablename__ = "notifications"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(String, nullable=False, index=True) # can be patient_id or 'admin' / doctor_id
+    role = Column(String, nullable=False) # 'patient' or 'doctor'
+    title = Column(String, nullable=False)
+    message = Column(Text, nullable=False)
+    is_read = Column(Integer, default=0) # essentially a boolean, using 0/1 for sqlite ease
+    created_at = Column(DateTime, default=datetime.utcnow)

@@ -68,3 +68,64 @@ class ChatResponse(BaseModel):
     reply: str
     evidence: List[RetrievedContext]
     history: List[ChatHistoryMessage]
+
+
+# ---- NEW SCHEMAS FOR HUMAN CHAT, APPOINTMENTS, NOTIFICATIONS ----
+
+class HumanChatMessageBase(BaseModel):
+    sender_role: str
+    recipient_id: Optional[str] = None
+    content: str
+    sources: Optional[dict[str, Any]] = None
+
+class HumanChatMessageCreate(HumanChatMessageBase):
+    pass
+
+class HumanChatMessageResponse(HumanChatMessageBase):
+    id: int
+    patient_id: str
+    created_at: datetime
+
+    class Config:
+        orm_mode = True
+
+
+class AppointmentBase(BaseModel):
+    patient_id: str
+    doctor_id: Optional[str] = "admin"
+    date: str
+    time: str
+    symptoms: Optional[str] = None
+
+class AppointmentCreate(AppointmentBase):
+    pass
+
+class AppointmentUpdateStatus(BaseModel):
+    status: str
+
+class AppointmentResponse(AppointmentBase):
+    id: int
+    status: str
+    created_at: datetime
+    updated_at: datetime
+
+    class Config:
+        orm_mode = True
+
+
+class NotificationBase(BaseModel):
+    user_id: str
+    role: str
+    title: str
+    message: str
+
+class NotificationCreate(NotificationBase):
+    pass
+
+class NotificationResponse(NotificationBase):
+    id: int
+    is_read: int
+    created_at: datetime
+
+    class Config:
+        orm_mode = True

@@ -2,12 +2,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { FileText } from "lucide-react";
+import { FileText, Cpu } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
-import { useActivePatient } from "../context/ActivePatientContext";
-import { API_BASE_URL } from "../api/client";
-import SeverityMeter from "../components/SeverityMeter";
-import i18n from "../i18n";
+import { useActivePatient } from "../../context/ActivePatientContext";
+import { API_BASE_URL } from "../../api/client";
+import SeverityMeter from "../../components/SeverityMeter";
+import i18n from "../../i18n";
 
 const API_BASE = API_BASE_URL;
 
@@ -220,7 +221,7 @@ const Detection = () => {
     result?.prob_asd != null ? (result.prob_asd * 100).toFixed(1) : null;
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-gradient-to-b from-sky-50 via-white to-emerald-50">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }} className="min-h-[calc(100vh-64px)] bg-slate-50">
       <div className="max-w-7xl mx-auto px-6 py-8">
         {/* 🔒 Sticky step indicator */}
         <div className="sticky top-4 z-20 mb-4">
@@ -377,12 +378,15 @@ const Detection = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl text-sm font-semibold text-white bg-gradient-to-r from-sky-500 to-emerald-500 shadow-sm disabled:opacity-60"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold text-white bg-slate-900 shadow-lg shadow-slate-900/20 hover:bg-slate-800 transition disabled:opacity-60 relative overflow-hidden"
               >
                 {loading && (
-                  <span className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  <span className="absolute inset-0 bg-sky-500/20 animate-pulse" />
                 )}
-                {i18n.t("run_button") || "Run MRI screening"}
+                {loading && (
+                  <Cpu size={18} className="animate-spin text-sky-400" />
+                )}
+                <span className="relative z-10">{loading ? "Processing AI..." : (i18n.t("run_button") || "Run AI Analysis")}</span>
               </button>
 
               <button
@@ -427,7 +431,7 @@ const Detection = () => {
           </form>
 
           {/* RIGHT: RESULT / EXPLANATION */}
-          <aside className="bg-white rounded-2xl p-6 border shadow-sm">
+          <motion.aside initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm">
             <div className="text-xs text-slate-500">
               {i18n.t("interpretation_summary") ||
                 "Interpretation summary"}
@@ -530,10 +534,10 @@ const Detection = () => {
               {i18n.t("note_disclaimer") ||
                 "Note: model output is for research and screening and does not replace clinical diagnosis."}
             </div>
-          </aside>
+          </motion.aside>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
