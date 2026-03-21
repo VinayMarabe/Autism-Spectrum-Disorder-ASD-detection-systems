@@ -1,0 +1,117 @@
+/* src/index.css - Tailwind + theme variables + custom overrides */
+
+/* --- Tailwind entry points (required) --- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Custom theme variables & overrides ---------- */
+* { box-sizing: border-box; }
+html,body,#root { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 180ms ease, color 180ms ease;
+}
+
+/* default variables (clinical) */
+:root {
+  --bg: #f8fafc;
+  --panel: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #0ea5e9;
+  --accent-600: #0284c7;
+  --border: #e6edf3;
+  --card-shadow: 0 6px 18px rgba(15, 23, 42, 0.03);
+  --radius-lg: 12px;
+  --muted-bg: #f1f5f9;
+  --focus-ring: 3px rgba(14,165,233,0.12);
+  --scroll-thumb: rgba(15,23,42,0.06);
+}
+
+/* clinical */
+[data-theme="clinical"] {
+  --bg: #f8fafc;
+  --panel: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #0ea5e9;
+  --border: #e6edf3;
+  --card-shadow: 0 6px 18px rgba(15, 23, 42, 0.03);
+}
+
+/* dark */
+:root[data-theme="dark"], .dark {
+  --bg: #071427;
+  --panel: #071827;
+  --text: #e6eef8;
+  --muted: #9aa9bf;
+  --accent: #38bdf8;
+  --border: rgba(255,255,255,0.04);
+  --card-shadow: 0 6px 18px rgba(2,6,23,0.7);
+}
+
+/* contrast */
+[data-theme="contrast"] {
+  --bg: #ffffff;
+  --panel: #000000;
+  --text: #ffffff;
+  --muted: #cbd5e1;
+  --accent: #ffdd57;
+  --border: #111827;
+  --card-shadow: 0 8px 22px rgba(0,0,0,0.5);
+}
+
+/* Generic UI helpers using variables */
+.bg-panel, .bg-white, .card { background: var(--panel) !important; color: var(--text) !important; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--card-shadow); }
+body { background: var(--bg); color: var(--text); }
+
+/* Sidebar */
+aside { background: var(--panel); color: var(--text); border-right: 1px solid var(--border); }
+aside .nav-item { display:flex; align-items:center; gap:12px; padding:10px 12px; border-radius:10px; color:var(--muted); text-decoration:none; }
+aside .nav-item:hover { background: var(--muted-bg); color: var(--text); }
+aside .nav-item[aria-current="page"] { background: rgba(14,165,233,0.08); color: var(--accent-600); font-weight:600; }
+
+/* Header */
+header { background: var(--panel); border-bottom:1px solid var(--border); color: var(--text); }
+
+/* Panel and card */
+.card { padding: 1rem; }
+
+/* Buttons */
+button, .btn { font-family: inherit; cursor: pointer; border-radius: 10px; transition: transform 120ms ease; }
+.btn-primary, .bg-sky-600 { background: var(--accent) !important; color: white !important; border: 1px solid var(--accent-600) !important; }
+.btn-ghost { background: transparent; border: 1px solid var(--border); color: var(--text); }
+
+/* Inputs */
+input, textarea, select { width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--panel); color: var(--text); }
+input:focus, textarea:focus, select:focus { outline: none; box-shadow: 0 0 0 var(--focus-ring); border-color: var(--accent-600); }
+
+/* Misc */
+.toast { background: var(--panel); border:1px solid var(--border); padding:10px 12px; border-radius:8px; box-shadow:var(--card-shadow); }
+.status-chip { display:inline-block; padding:6px 10px; border-radius:999px; font-size:13px; border:1px solid var(--border); background:var(--muted-bg); color:var(--muted); }
+
+/* Mic/voice */
+.voice-button, .mic-button { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid transparent; background:var(--muted-bg); color:var(--text); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--scroll-thumb); border-radius: 999px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  aside { display:none !important; }
+}
+
+/* small utilities */
+.text-muted { color: var(--muted); }
+.small { font-size: 0.85rem; }
+.space-y-6 > * + * { margin-top: 1.5rem; }
+
+/* ensure .bg-white uses our panel */
+.bg-white { background: var(--panel) !important; color: var(--text) !important; border-radius: var(--radius-lg); border: 1px solid var(--border); padding: 1rem; }
