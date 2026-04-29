@@ -29,8 +29,6 @@ import {
   Settings as SettingsIcon,
   ActivitySquare,
   BookOpen,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
 
 import { ActivePatientProvider } from "./context/ActivePatientContext";
@@ -45,17 +43,12 @@ const AppLayout = ({ children }) => {
     <div className="h-screen flex bg-slate-50 text-slate-900 overflow-hidden font-sans">
       {/* Sidebar (fixed height, left side) */}
       <aside className={`hidden md:flex md:flex-col ${isSidebarCollapsed ? "w-20" : "w-64"} bg-white/60 backdrop-blur-xl border-r border-slate-200/60 shadow-[4px_0_24px_rgba(0,0,0,0.02)] h-full z-20 transition-all duration-300 relative`}>
-        {/* Toggle Button */}
-        <button
-          onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
-          className="absolute -right-3 top-8 w-6 h-6 bg-white border border-slate-200 rounded-full flex items-center justify-center text-slate-500 hover:text-slate-700 hover:shadow-md transition-all shadow-sm z-30"
-          aria-label={isSidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
-        >
-          {isSidebarCollapsed ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
-        </button>
-
         <div className={`px-6 py-6 border-b border-slate-200/50 flex items-center overflow-hidden transition-all duration-300 ${isSidebarCollapsed ? "justify-center px-0" : "gap-3"}`}>
-          <div className="w-10 h-10 shrink-0 rounded-xl bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary-500/30 ring-2 ring-white">
+          <div 
+            onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
+            className="w-10 h-10 shrink-0 rounded-xl bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary-500/30 ring-2 ring-white cursor-pointer hover:scale-105 transition-transform"
+            title={isSidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+          >
             DT
           </div>
           {!isSidebarCollapsed && (
