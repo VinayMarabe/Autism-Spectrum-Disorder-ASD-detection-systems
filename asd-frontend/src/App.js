@@ -1,5 +1,5 @@
 // src/App.js
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -29,25 +29,37 @@ import {
   Settings as SettingsIcon,
   ActivitySquare,
   BookOpen,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
 import { ActivePatientProvider } from "./context/ActivePatientContext";
 import i18n from "./i18n";
 
 const AppLayout = ({ children }) => {
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const siteName = (i18n && i18n.t && i18n.t("site_name")) || "Dr.THYNK";
 
   return (
     // 🔒 Full viewport height, no window scroll; only main area scrolls
     <div className="h-screen flex bg-slate-50 text-slate-900 overflow-hidden font-sans">
       {/* Sidebar (fixed height, left side) */}
-      <aside className="hidden md:flex md:flex-col w-64 bg-white/60 backdrop-blur-xl border-r border-slate-200/60 shadow-[4px_0_24px_rgba(0,0,0,0.02)] h-full z-20 transition-all duration-300">
-        <div className="px-6 py-6 border-b border-slate-200/50">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary-500/30 ring-2 ring-white">
-              DT
-            </div>
-            <div>
+      <aside className={`hidden md:flex md:flex-col ${isSidebarCollapsed ? "w-20" : "w-64"} bg-white/60 backdrop-blur-xl border-r border-slate-200/60 shadow-[4px_0_24px_rgba(0,0,0,0.02)] h-full z-20 transition-all duration-300 relative`}>
+        {/* Toggle Button */}
+        <button
+          onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
+          className="absolute -right-3 top-8 w-6 h-6 bg-white border border-slate-200 rounded-full flex items-center justify-center text-slate-500 hover:text-slate-700 hover:shadow-md transition-all shadow-sm z-30"
+          aria-label={isSidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+        >
+          {isSidebarCollapsed ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
+        </button>
+
+        <div className={`px-6 py-6 border-b border-slate-200/50 flex items-center overflow-hidden transition-all duration-300 ${isSidebarCollapsed ? "justify-center px-0" : "gap-3"}`}>
+          <div className="w-10 h-10 shrink-0 rounded-xl bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary-500/30 ring-2 ring-white">
+            DT
+          </div>
+          {!isSidebarCollapsed && (
+            <div className="overflow-hidden whitespace-nowrap animate-fade-in">
               <p className="text-sm font-bold text-slate-800 tracking-tight">
                 {siteName}
               </p>
@@ -55,47 +67,53 @@ const AppLayout = ({ children }) => {
                 {i18n.t("header_subtitle")}
               </p>
             </div>
-          </div>
+          )}
         </div>
 
-        <nav className="flex-1 px-3 py-4 space-y-1 text-sm overflow-y-auto">
-          <NavItem to="/dashboard" icon={<LayoutDashboard size={16} />}>
+        <nav className="flex-1 px-3 py-4 space-y-1 text-sm overflow-y-auto custom-scrollbar overflow-x-hidden">
+          <NavItem to="/dashboard" icon={<LayoutDashboard size={18} />} collapsed={isSidebarCollapsed}>
             {i18n.t("nav_dashboard")}
           </NavItem>
 
-          <NavItem to="/patient-form" icon={<ClipboardList size={16} />}>
+          <NavItem to="/patient-form" icon={<ClipboardList size={18} />} collapsed={isSidebarCollapsed}>
             {i18n.t("nav_patient_form")}
           </NavItem>
 
-          <NavItem to="/patients" icon={<Users size={16} />}>
+          <NavItem to="/patients" icon={<Users size={18} />} collapsed={isSidebarCollapsed}>
             {i18n.t("nav_patients")}
           </NavItem>
 
-          <NavItem to="/detection" icon={<ActivitySquare size={16} />}>
+          <NavItem to="/detection" icon={<ActivitySquare size={18} />} collapsed={isSidebarCollapsed}>
             {i18n.t("nav_detection")}
           </NavItem>
 
+          {/* Divider matching reference image */}
+          <div className="my-4 border-t border-slate-200/60 mx-2"></div>
+
+          {/* Lower Nav */}
           {/* Convo with Dr nav */}
-          <NavItem to="/convo-with-dr" icon={<ActivitySquare size={16} />}>
+          <NavItem to="/convo-with-dr" icon={<ActivitySquare size={18} />} collapsed={isSidebarCollapsed}>
             {i18n.t("nav_convo_with_dr") || "Convo with Dr"}
           </NavItem>
 
-          <NavItem to="/mvp-roi" icon={<ActivitySquare size={16} />}>
+          <NavItem to="/mvp-roi" icon={<ActivitySquare size={18} />} collapsed={isSidebarCollapsed}>
             {"MVP ROI Viewer"}
           </NavItem>
 
-          <NavItem to="/how-it-works" icon={<BookOpen size={16} />}>
+          <NavItem to="/how-it-works" icon={<BookOpen size={18} />} collapsed={isSidebarCollapsed}>
             {"How It Works"}
           </NavItem>
 
-          <NavItem to="/settings" icon={<SettingsIcon size={16} />}>
+          <NavItem to="/settings" icon={<SettingsIcon size={18} />} collapsed={isSidebarCollapsed}>
             {i18n.t("nav_settings")}
           </NavItem>
         </nav>
 
-        <div className="px-6 py-4 border-t border-slate-200/50 text-[11px] text-slate-400 font-medium tracking-wide">
-          MRI · Behaviour Notes · Severity AI
-        </div>
+        {!isSidebarCollapsed && (
+          <div className="px-6 py-4 border-t border-slate-200/50 text-[11px] text-slate-400 font-medium tracking-wide animate-fade-in whitespace-nowrap">
+            MRI · Behaviour Notes · Severity AI
+          </div>
+        )}
       </aside>
 
       {/* Right side: header fixed at top, main scrolls */}
@@ -130,22 +148,24 @@ const AppLayout = ({ children }) => {
   );
 };
 
-const NavItem = ({ to, icon, children }) => (
+const NavItem = ({ to, icon, children, collapsed }) => (
   <NavLink
     to={to}
     className={({ isActive }) =>
       [
-        "flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-200 group text-sm",
+        "flex items-center rounded-xl transition-all duration-200 group text-sm font-medium",
+        collapsed ? "justify-center p-3" : "gap-3 px-4 py-3",
         isActive
-          ? "nav-item-active"
-          : "text-slate-500 hover:bg-slate-100 hover:text-slate-900",
+          ? "bg-primary-50 text-primary-600 shadow-sm"
+          : "text-slate-500 hover:bg-slate-100/80 hover:text-slate-900",
       ].join(" ")
     }
+    title={collapsed ? children : undefined}
   >
-    <span className="transition-transform duration-200 group-hover:scale-110">
+    <span className={`transition-transform duration-200 group-hover:scale-110 shrink-0 ${collapsed ? "mx-auto" : ""}`}>
       {icon}
     </span>
-    <span>{children}</span>
+    {!collapsed && <span className="truncate whitespace-nowrap">{children}</span>}
   </NavLink>
 );
 
