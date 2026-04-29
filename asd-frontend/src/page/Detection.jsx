@@ -222,26 +222,7 @@ const Detection = () => {
   return (
     <div className="animate-fade-in pb-12">
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-8">
-        {/* 🔒 Sticky step indicator */}
-        <div className="sticky top-4 z-20 mb-8">
-          <div className="glass-panel mx-auto max-w-fit px-5 py-2.5 flex items-center gap-4 text-xs font-semibold text-slate-500">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-full bg-primary-500 text-white flex items-center justify-center text-[11px] font-bold shadow-md shadow-primary-500/30">
-                1
-              </div>
-              <span className="text-slate-800">
-                Upload MRI &amp; notes
-              </span>
-            </div>
-            <div className="h-px w-8 bg-slate-200" />
-            <div className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity">
-              <div className="w-6 h-6 rounded-full bg-slate-100 border border-slate-200 text-slate-500 flex items-center justify-center text-[11px] font-bold">
-                2
-              </div>
-              <span>Run screening &amp; view report</span>
-            </div>
-          </div>
-        </div>
+
 
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
