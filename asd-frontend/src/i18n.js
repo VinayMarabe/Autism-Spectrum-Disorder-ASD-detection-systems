@@ -2,7 +2,7 @@
 const translations = {
   en: {
     // App / header / nav
-    site_name: "dr.THYNK",
+    site_name: "Dr.THYNK",
     header_title: "Smart ASD Screening Platform",
     header_subtitle: "ASD Assistant",
     nav_dashboard: "Dashboard",
@@ -148,7 +148,7 @@ const translations = {
   },
 
   hi: {
-    site_name: "dr.THYNK",
+    site_name: "Dr.THYNK",
     header_title: "स्मार्ट ASD स्क्रीनिंग प्लेटफ़ॉर्म",
     header_subtitle: "ASD सहायक",
     nav_dashboard: "डैशबोर्ड",
@@ -287,7 +287,7 @@ const translations = {
   },
 
   mr: {
-    site_name: "dr.THYNK",
+    site_name: "Dr.THYNK",
     header_title: "स्मार्ट ASD स्क्रीनिंग प्लॅटफॉर्म",
     header_subtitle: "ASD सहाय्यक",
     nav_dashboard: "डॅशबोर्ड",

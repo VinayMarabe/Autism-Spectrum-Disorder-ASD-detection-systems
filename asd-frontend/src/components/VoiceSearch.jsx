@@ -137,7 +137,7 @@ export default function VoiceSearch() {
       <button
         type="button"
         onClick={toggleListening}
-        className={`mic-button ${listening ? "bg-rose-50 text-rose-600 border border-rose-200" : "bg-slate-100 hover:bg-slate-200 text-slate-700 border border-transparent"}`}
+        className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-semibold transition-colors ${listening ? "bg-rose-100 text-rose-700 hover:bg-rose-200" : "btn-ghost text-slate-600"} ${!enabled ? "opacity-50 cursor-not-allowed" : ""}`}
         aria-pressed={listening}
         title={enabled ? (listening ? "Stop listening" : "Start voice") : "Voice disabled in Settings"}
       >
@@ -145,7 +145,7 @@ export default function VoiceSearch() {
           <path d="M9 2a1 1 0 00-1 1v6a1 1 0 102 0V3a1 1 0 00-1-1z" />
           <path d="M5 8a4 4 0 008 0v-.5a1 1 0 112 0V8a6 6 0 11-12 0v-.5a1 1 0 112 0V8z" />
         </svg>
-        <span className="ml-2">{enabled ? (listening ? "Listening…" : "Voice") : "Voice off"}</span>
+        <span>{enabled ? (listening ? "Listening…" : "Voice") : "Voice off"}</span>
       </button>
     </div>
   );

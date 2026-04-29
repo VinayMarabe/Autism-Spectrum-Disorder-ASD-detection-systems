@@ -18,7 +18,7 @@ import {
 import i18n from "../i18n";
 
 const API_BASE = process.env.REACT_APP_API_BASE || "http://127.0.0.1:8001";
-const SITE_NAME = "dr.THYNK";
+const SITE_NAME = "Dr.THYNK";
 
 function timeAgo(iso) {
   if (!iso) return "";
@@ -288,9 +288,6 @@ export default function Dashboard() {
             <h1 className="text-3xl md:text-4xl font-extrabold text-sky-900 leading-tight mt-2">
               {i18n.t("dashboard_title")}
             </h1>
-            <p className="text-sm text-slate-600 mt-2 max-w-3xl mx-0 md:mx-auto">
-              {i18n.t("dashboard_subtitle")}
-            </p>
             {active && (
               <p className="mt-3 text-sm text-slate-700 font-semibold">
                 {i18n.t("active_patient_text")}:{" "}
@@ -481,30 +478,11 @@ export default function Dashboard() {
                   {i18n.t("demo_severity")}
                 </div>
                 <div className="flex flex-col gap-3">
-                  <div className="text-[10px] text-slate-400 uppercase tracking-widest font-bold">
-                    SEVERITY PREDICTION
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="flex-1 h-2.5 bg-slate-200 rounded-full overflow-hidden">
-                      {/* Replacing simple SeverityMeter block with a nicer container around it */}
-                      <div className="h-full w-full relative">
-                        <SeverityMeter
-                          severity={latestSeverityLabel}
-                          probability={latestProb}
-                        />
-                      </div>
-                    </div>
-                    <div className="text-[11px] font-bold text-slate-700 whitespace-nowrap rounded-lg px-2.5 py-1 bg-white border shadow-sm">
-                      {latestSeverityLabel}
-                    </div>
-                  </div>
-                  <div className="text-xs font-medium text-slate-500 mt-1">
-                    Confidence:{" "}
-                    <span className="font-bold text-slate-700">
-                      {latestProb != null
-                        ? `${(latestProb * 100).toFixed(1)}%`
-                        : "N/A"}
-                    </span>
+                  <div className="w-full">
+                    <SeverityMeter
+                      severity={latestSeverityLabel}
+                      probability={latestProb}
+                    />
                   </div>
                 </div>
               </div>

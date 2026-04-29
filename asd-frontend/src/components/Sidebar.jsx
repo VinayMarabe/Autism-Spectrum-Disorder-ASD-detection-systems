@@ -11,7 +11,7 @@ import {
 import i18n from "../i18n";
 
 export default function Sidebar({ siteName }) {
-  const brand = siteName || (i18n && i18n.t && i18n.t("site_name")) || "dr.THYNK";
+  const brand = siteName || (i18n && i18n.t && i18n.t("site_name")) || "Dr.THYNK";
 
   const NavItem = ({ to, icon, children }) => (
     <NavLink

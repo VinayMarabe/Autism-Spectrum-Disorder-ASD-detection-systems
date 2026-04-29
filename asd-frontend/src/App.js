@@ -35,7 +35,7 @@ import { ActivePatientProvider } from "./context/ActivePatientContext";
 import i18n from "./i18n";
 
 const AppLayout = ({ children }) => {
-  const siteName = (i18n && i18n.t && i18n.t("site_name")) || "dr.THYNK";
+  const siteName = (i18n && i18n.t && i18n.t("site_name")) || "Dr.THYNK";
 
   return (
     // 🔒 Full viewport height, no window scroll; only main area scrolls
