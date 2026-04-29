@@ -1,0 +1,989 @@
+{
+  "version": "1.1",
+  "atlas": "Harvard-Oxford-48",
+  "prediction": {
+    "label": "ASD",
+    "probability": 0.649,
+    "confidence": 0.149
+  },
+  "rois": [
+    {
+      "id": 0,
+      "label": "Frontal Pole L",
+      "coords": [
+        -27.39128315696598,
+        59.96217482820918,
+        1.5594364268240843
+      ],
+      "importance": 0.500404,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 1,
+      "label": "Frontal Pole R",
+      "coords": [
+        29.682004540204908,
+        56.11381997908722,
+        -1.1817780273200915
+      ],
+      "importance": 0.473172,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 2,
+      "label": "Insular Cortex L",
+      "coords": [
+        -37.36361418484415,
+        6.400245855033995,
+        0.41633161065961755
+      ],
+      "importance": 0.455886,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 3,
+      "label": "Insular Cortex R",
+      "coords": [
+        36.641225657187,
+        5.105953677076527,
+        2.8782943933904583
+      ],
+      "importance": 0.426597,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 4,
+      "label": "Superior Frontal Gyrus L",
+      "coords": [
+        -16.63593906958099,
+        32.333761317344475,
+        46.73892208441068
+      ],
+      "importance": 0.400156,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 5,
+      "label": "Superior Frontal Gyrus R",
+      "coords": [
+        21.166205456250093,
+        33.7839242359752,
+        47.30320926743363
+      ],
+      "importance": 0.377853,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 6,
+      "label": "Middle Frontal Gyrus L",
+      "coords": [
+        -39.414007219577925,
+        27.01949762584689,
+        32.79116002864597
+      ],
+      "importance": 0.350278,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 7,
+      "label": "Middle Frontal Gyrus R",
+      "coords": [
+        41.44690315461093,
+        29.588362483690574,
+        33.57393186823642
+      ],
+      "importance": 0.33169,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 8,
+      "label": "Inferior Frontal Gyrus pars tri L",
+      "coords": [
+        -46.77568898356225,
+        24.75012904276238,
+        12.997015836811585
+      ],
+      "importance": 0.315081,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 9,
+      "label": "Inferior Frontal Gyrus pars tri R",
+      "coords": [
+        53.025114299152136,
+        24.530453977271215,
+        13.765911850010955
+      ],
+      "importance": 0.298809,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 10,
+      "label": "Inferior Frontal Gyrus pars oper L",
+      "coords": [
+        -47.511471450604404,
+        14.082151613424596,
+        21.518709650666587
+      ],
+      "importance": 0.281062,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 11,
+      "label": "Inferior Frontal Gyrus pars oper R",
+      "coords": [
+        51.56025699109543,
+        13.594344897144325,
+        18.26101736240161
+      ],
+      "importance": 0.267049,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 12,
+      "label": "Precentral Gyrus L",
+      "coords": [
+        -34.14061330742504,
+        -7.686904426937192,
+        53.7402427427724
+      ],
+      "importance": 0.249167,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 13,
+      "label": "Precentral Gyrus R",
+      "coords": [
+        38.12682977207856,
+        -6.276956889301129,
+        52.16470881703781
+      ],
+      "importance": 0.239053,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 14,
+      "label": "Temporal Pole L",
+      "coords": [
+        -37.541186769834034,
+        15.079634835501555,
+        -31.70092973969926
+      ],
+      "importance": 0.216003,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 15,
+      "label": "Temporal Pole R",
+      "coords": [
+        40.81948876933618,
+        15.38553799962837,
+        -30.418215733213263
+      ],
+      "importance": 0.205491,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 16,
+      "label": "Superior Temporal Gyrus ant L",
+      "coords": [
+        -57.908050748450094,
+        -6.0001542828427175,
+        -7.650547779613868
+      ],
+      "importance": 0.191921,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 17,
+      "label": "Superior Temporal Gyrus ant R",
+      "coords": [
+        58.84696709900305,
+        -7.862314879060378,
+        -6.533905798227252
+      ],
+      "importance": 0.189587,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 18,
+      "label": "Superior Temporal Gyrus post L",
+      "coords": [
+        -60.70868606183715,
+        -26.565700475657547,
+        5.4510225461761515
+      ],
+      "importance": 0.178519,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 19,
+      "label": "Superior Temporal Gyrus post R",
+      "coords": [
+        64.92049646059112,
+        -29.784351022254754,
+        6.790078650611725
+      ],
+      "importance": 0.161345,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 20,
+      "label": "Middle Temporal Gyrus ant L",
+      "coords": [
+        -54.526215650703094,
+        -3.098035930455339,
+        -21.04957110580027
+      ],
+      "importance": 0.160408,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 21,
+      "label": "Middle Temporal Gyrus ant R",
+      "coords": [
+        61.28985158441146,
+        -5.902585777276886,
+        -22.45364918134947
+      ],
+      "importance": 0.152735,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 22,
+      "label": "Middle Temporal Gyrus post L",
+      "coords": [
+        -58.22317742397115,
+        -30.857460649315453,
+        -3.972904814262783
+      ],
+      "importance": 0.142451,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 23,
+      "label": "Middle Temporal Gyrus post R",
+      "coords": [
+        62.31298209337041,
+        -33.794470054180735,
+        -3.433867579129158
+      ],
+      "importance": 0.134246,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 24,
+      "label": "Inferior Temporal Gyrus ant L",
+      "coords": [
+        -46.18983154418516,
+        -6.92823361405098,
+        -37.82769382691853
+      ],
+      "importance": 0.121415,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 25,
+      "label": "Inferior Temporal Gyrus ant R",
+      "coords": [
+        52.85686433019489,
+        -6.350410765059429,
+        -37.19942072691184
+      ],
+      "importance": 0.111783,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 26,
+      "label": "Inferior Temporal Gyrus post L",
+      "coords": [
+        -53.518338623743446,
+        -31.794117628996045,
+        -17.40137280953767
+      ],
+      "importance": 0.108098,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 27,
+      "label": "Inferior Temporal Gyrus post R",
+      "coords": [
+        57.30001236544909,
+        -31.451333259367328,
+        -17.67142205468963
+      ],
+      "importance": 0.113789,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 28,
+      "label": "Postcentral Gyrus L",
+      "coords": [
+        -40.07621614299657,
+        -26.88517547478326,
+        52.74153140783211
+      ],
+      "importance": 0.104896,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 29,
+      "label": "Postcentral Gyrus R",
+      "coords": [
+        43.817359688016495,
+        -28.91130141172293,
+        51.58093277513932
+      ],
+      "importance": 0.093039,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 30,
+      "label": "Superior Parietal Lobule L",
+      "coords": [
+        -27.564918704230966,
+        -50.71402112500274,
+        57.549793084579925
+      ],
+      "importance": 0.088449,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 31,
+      "label": "Superior Parietal Lobule R",
+      "coords": [
+        32.98866455208729,
+        -53.582692537169606,
+        56.48006116466733
+      ],
+      "importance": 0.086029,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 32,
+      "label": "Supramarginal Gyrus ant L",
+      "coords": [
+        -56.816383650617226,
+        -33.84963985586463,
+        35.42360835012806
+      ],
+      "importance": 0.078103,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 33,
+      "label": "Supramarginal Gyrus ant R",
+      "coords": [
+        61.20633366000047,
+        -31.760838105497793,
+        35.00889540262417
+      ],
+      "importance": 0.078062,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 34,
+      "label": "Supramarginal Gyrus post L",
+      "coords": [
+        -50.658925373660885,
+        -44.28297711767931,
+        37.37708538786455
+      ],
+      "importance": 0.076321,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 35,
+      "label": "Supramarginal Gyrus post R",
+      "coords": [
+        54.688303610755916,
+        -46.6754115673733,
+        38.568000250619825
+      ],
+      "importance": 0.064924,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 36,
+      "label": "Angular Gyrus L",
+      "coords": [
+        -46.63202337504653,
+        -57.89322100448178,
+        28.725478647682827
+      ],
+      "importance": 0.059182,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 37,
+      "label": "Angular Gyrus R",
+      "coords": [
+        48.26892743377528,
+        -57.41413009224032,
+        28.47550805313302
+      ],
+      "importance": 0.062506,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 38,
+      "label": "Lateral Occipital Cortex sup L",
+      "coords": [
+        -31.368341262389663,
+        -73.87016060080192,
+        32.232621280018215
+      ],
+      "importance": 0.063596,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 39,
+      "label": "Lateral Occipital Cortex sup R",
+      "coords": [
+        36.04032057905909,
+        -72.99434582013859,
+        34.70346686207287
+      ],
+      "importance": 0.062137,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 40,
+      "label": "Lateral Occipital Cortex inf L",
+      "coords": [
+        -39.43201811518218,
+        -79.56137303711324,
+        0.7522294678455363
+      ],
+      "importance": 0.057655,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 41,
+      "label": "Lateral Occipital Cortex inf R",
+      "coords": [
+        42.56967325178171,
+        -78.19876449303132,
+        0.22796790608738782
+      ],
+      "importance": 0.056921,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 42,
+      "label": "Intracalcarine Cortex L",
+      "coords": [
+        -7.356821676046587,
+        -76.79408695008213,
+        7.517906675358307
+      ],
+      "importance": 0.041336,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 43,
+      "label": "Intracalcarine Cortex R",
+      "coords": [
+        13.624057329565785,
+        -75.68321399616738,
+        4.749211483210151
+      ],
+      "importance": 0.039147,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 44,
+      "label": "Cingulate Gyrus ant L",
+      "coords": [
+        -3.69593015295456,
+        31.56302022168251,
+        18.664614852431086
+      ],
+      "importance": 0.03642,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 45,
+      "label": "Cingulate Gyrus ant R",
+      "coords": [
+        6.3941446455045385,
+        33.98578139921767,
+        18.767367763809435
+      ],
+      "importance": 0.034129,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 46,
+      "label": "Cingulate Gyrus post L",
+      "coords": [
+        -4.7653885291394324,
+        -43.980223011142286,
+        27.608130053940044
+      ],
+      "importance": 0.032835,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    },
+    {
+      "id": 47,
+      "label": "Cingulate Gyrus post R",
+      "coords": [
+        6.302718162458721,
+        -42.020689055878954,
+        28.053907600245623
+      ],
+      "importance": 0.030404,
+      "color": "rgba(100,180,100,0.78)",
+      "size": 2
+    }
+  ],
+  "connections": [
+    {
+      "roi_from": 11,
+      "roi_to": 33,
+      "strength": -0.1117
+    },
+    {
+      "roi_from": 12,
+      "roi_to": 3,
+      "strength": 0.2772
+    },
+    {
+      "roi_from": 37,
+      "roi_to": 9,
+      "strength": -0.1413
+    },
+    {
+      "roi_from": 8,
+      "roi_to": 21,
+      "strength": -0.1589
+    },
+    {
+      "roi_from": 10,
+      "roi_to": 14,
+      "strength": 0.2897
+    },
+    {
+      "roi_from": 3,
+      "roi_to": 1,
+      "strength": 0.4191
+    },
+    {
+      "roi_from": 29,
+      "roi_to": 23,
+      "strength": 0.4206
+    },
+    {
+      "roi_from": 47,
+      "roi_to": 1,
+      "strength": 0.2758
+    },
+    {
+      "roi_from": 16,
+      "roi_to": 28,
+      "strength": -0.1622
+    },
+    {
+      "roi_from": 43,
+      "roi_to": 15,
+      "strength": 0.4069
+    },
+    {
+      "roi_from": 6,
+      "roi_to": 27,
+      "strength": 0.2585
+    },
+    {
+      "roi_from": 6,
+      "roi_to": 14,
+      "strength": -0.0584
+    },
+    {
+      "roi_from": 15,
+      "roi_to": 20,
+      "strength": -0.0558
+    },
+    {
+      "roi_from": 47,
+      "roi_to": 34,
+      "strength": -0.1316
+    },
+    {
+      "roi_from": 15,
+      "roi_to": 33,
+      "strength": 0.4164
+    },
+    {
+      "roi_from": 0,
+      "roi_to": 11,
+      "strength": -0.0854
+    },
+    {
+      "roi_from": 13,
+      "roi_to": 25,
+      "strength": 0.0327
+    },
+    {
+      "roi_from": 46,
+      "roi_to": 5,
+      "strength": 0.3928
+    },
+    {
+      "roi_from": 42,
+      "roi_to": 27,
+      "strength": -0.1042
+    },
+    {
+      "roi_from": 36,
+      "roi_to": 45,
+      "strength": 0.3797
+    },
+    {
+      "roi_from": 43,
+      "roi_to": 36,
+      "strength": 0.0301
+    },
+    {
+      "roi_from": 23,
+      "roi_to": 47,
+      "strength": 0.463
+    },
+    {
+      "roi_from": 0,
+      "roi_to": 5,
+      "strength": 0.4089
+    },
+    {
+      "roi_from": 33,
+      "roi_to": 18,
+      "strength": -0.2428
+    },
+    {
+      "roi_from": 6,
+      "roi_to": 36,
+      "strength": 0.0593
+    },
+    {
+      "roi_from": 16,
+      "roi_to": 20,
+      "strength": -0.1313
+    },
+    {
+      "roi_from": 37,
+      "roi_to": 27,
+      "strength": 0.4038
+    },
+    {
+      "roi_from": 47,
+      "roi_to": 19,
+      "strength": 0.4757
+    },
+    {
+      "roi_from": 4,
+      "roi_to": 41,
+      "strength": 0.477
+    },
+    {
+      "roi_from": 39,
+      "roi_to": 28,
+      "strength": -0.2819
+    },
+    {
+      "roi_from": 22,
+      "roi_to": 11,
+      "strength": 0.3606
+    },
+    {
+      "roi_from": 8,
+      "roi_to": 5,
+      "strength": -0.3087
+    },
+    {
+      "roi_from": 38,
+      "roi_to": 5,
+      "strength": -0.0951
+    },
+    {
+      "roi_from": 44,
+      "roi_to": 39,
+      "strength": 0.1723
+    },
+    {
+      "roi_from": 36,
+      "roi_to": 14,
+      "strength": -0.001
+    },
+    {
+      "roi_from": 19,
+      "roi_to": 33,
+      "strength": 0.3278
+    },
+    {
+      "roi_from": 18,
+      "roi_to": 32,
+      "strength": 0.374
+    },
+    {
+      "roi_from": 24,
+      "roi_to": 42,
+      "strength": -0.2958
+    },
+    {
+      "roi_from": 1,
+      "roi_to": 7,
+      "strength": -0.2895
+    },
+    {
+      "roi_from": 8,
+      "roi_to": 43,
+      "strength": 0.3724
+    },
+    {
+      "roi_from": 2,
+      "roi_to": 37,
+      "strength": 0.207
+    },
+    {
+      "roi_from": 12,
+      "roi_to": 15,
+      "strength": -0.2946
+    },
+    {
+      "roi_from": 40,
+      "roi_to": 46,
+      "strength": 0.4184
+    },
+    {
+      "roi_from": 40,
+      "roi_to": 47,
+      "strength": 0.1965
+    },
+    {
+      "roi_from": 14,
+      "roi_to": 33,
+      "strength": 0.1824
+    },
+    {
+      "roi_from": 4,
+      "roi_to": 5,
+      "strength": -0.1973
+    },
+    {
+      "roi_from": 32,
+      "roi_to": 44,
+      "strength": -0.2647
+    },
+    {
+      "roi_from": 3,
+      "roi_to": 36,
+      "strength": -0.3016
+    },
+    {
+      "roi_from": 25,
+      "roi_to": 13,
+      "strength": 0.0047
+    },
+    {
+      "roi_from": 23,
+      "roi_to": 43,
+      "strength": -0.2147
+    },
+    {
+      "roi_from": 25,
+      "roi_to": 47,
+      "strength": 0.3203
+    },
+    {
+      "roi_from": 16,
+      "roi_to": 28,
+      "strength": -0.0304
+    },
+    {
+      "roi_from": 14,
+      "roi_to": 33,
+      "strength": -0.2911
+    },
+    {
+      "roi_from": 46,
+      "roi_to": 6,
+      "strength": 0.218
+    },
+    {
+      "roi_from": 38,
+      "roi_to": 5,
+      "strength": 0.4736
+    },
+    {
+      "roi_from": 35,
+      "roi_to": 20,
+      "strength": 0.283
+    },
+    {
+      "roi_from": 2,
+      "roi_to": 19,
+      "strength": -0.2063
+    },
+    {
+      "roi_from": 40,
+      "roi_to": 18,
+      "strength": 0.1425
+    },
+    {
+      "roi_from": 6,
+      "roi_to": 41,
+      "strength": 0.3833
+    },
+    {
+      "roi_from": 32,
+      "roi_to": 27,
+      "strength": -0.1963
+    },
+    {
+      "roi_from": 35,
+      "roi_to": 26,
+      "strength": 0.0344
+    },
+    {
+      "roi_from": 44,
+      "roi_to": 35,
+      "strength": -0.1192
+    },
+    {
+      "roi_from": 25,
+      "roi_to": 1,
+      "strength": 0.1104
+    },
+    {
+      "roi_from": 24,
+      "roi_to": 28,
+      "strength": -0.0993
+    },
+    {
+      "roi_from": 13,
+      "roi_to": 31,
+      "strength": 0.1807
+    },
+    {
+      "roi_from": 20,
+      "roi_to": 2,
+      "strength": 0.078
+    },
+    {
+      "roi_from": 29,
+      "roi_to": 34,
+      "strength": 0.0595
+    },
+    {
+      "roi_from": 12,
+      "roi_to": 11,
+      "strength": 0.3829
+    },
+    {
+      "roi_from": 0,
+      "roi_to": 33,
+      "strength": 0.0737
+    },
+    {
+      "roi_from": 8,
+      "roi_to": 1,
+      "strength": 0.2366
+    },
+    {
+      "roi_from": 20,
+      "roi_to": 1,
+      "strength": -0.2979
+    },
+    {
+      "roi_from": 31,
+      "roi_to": 27,
+      "strength": 0.0709
+    },
+    {
+      "roi_from": 33,
+      "roi_to": 11,
+      "strength": -0.2302
+    },
+    {
+      "roi_from": 1,
+      "roi_to": 27,
+      "strength": 0.4418
+    },
+    {
+      "roi_from": 27,
+      "roi_to": 10,
+      "strength": 0.03
+    },
+    {
+      "roi_from": 39,
+      "roi_to": 27,
+      "strength": 0.1883
+    },
+    {
+      "roi_from": 30,
+      "roi_to": 32,
+      "strength": -0.2561
+    },
+    {
+      "roi_from": 41,
+      "roi_to": 18,
+      "strength": 0.4421
+    },
+    {
+      "roi_from": 7,
+      "roi_to": 0,
+      "strength": -0.0579
+    },
+    {
+      "roi_from": 1,
+      "roi_to": 14,
+      "strength": 0.0635
+    }
+  ]
+}

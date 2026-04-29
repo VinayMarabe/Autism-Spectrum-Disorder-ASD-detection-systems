@@ -16,6 +16,8 @@ import Settings from "./page/Settings";
 import PatientDetails from "./page/PatientDetails";
 import HeatmapJourney from "./page/HeatmapJourney";
 import ConvoWithDoctor from "./page/ConvoWithDoctor";
+import MvpRoiDashboard from "./page/MvpRoiDashboard";
+import HowItWorks from "./page/HowItWorks";
 
 import ActivePatientDropdown from "./components/ActivePatientDropdown";
 import VoiceSearch from "./components/VoiceSearch";
@@ -26,6 +28,7 @@ import {
   Users,
   Settings as SettingsIcon,
   ActivitySquare,
+  BookOpen,
 } from "lucide-react";
 
 import { ActivePatientProvider } from "./context/ActivePatientContext";
@@ -72,14 +75,17 @@ const AppLayout = ({ children }) => {
             {i18n.t("nav_detection")}
           </NavItem>
 
-          {/* Heatmap journey nav */}
-          <NavItem to="/heatmap-journey" icon={<ActivitySquare size={16} />}>
-            {i18n.t("nav_heatmap_journey") || "Heatmap journey"}
-          </NavItem>
-
           {/* Convo with Dr nav */}
           <NavItem to="/convo-with-dr" icon={<ActivitySquare size={16} />}>
             {i18n.t("nav_convo_with_dr") || "Convo with Dr"}
+          </NavItem>
+
+          <NavItem to="/mvp-roi" icon={<ActivitySquare size={16} />}>
+            {"MVP ROI Viewer"}
+          </NavItem>
+
+          <NavItem to="/how-it-works" icon={<BookOpen size={16} />}>
+            {"How It Works"}
           </NavItem>
 
           <NavItem to="/settings" icon={<SettingsIcon size={16} />}>
@@ -155,6 +161,8 @@ const App = () => {
             {/* Heatmap + Convo routes */}
             <Route path="/heatmap-journey" element={<HeatmapJourney />} />
             <Route path="/convo-with-dr" element={<ConvoWithDoctor />} />
+            <Route path="/mvp-roi" element={<MvpRoiDashboard />} />
+            <Route path="/how-it-works" element={<HowItWorks />} />
 
             <Route
               path="*"

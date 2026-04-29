@@ -1,0 +1,23 @@
+{
+  "prediction": "ASD",
+  "probability": 0.649813711643219,
+  "confidence": 0.149813711643219,
+  "atlas": "AAL3",
+  "n_rois": 170,
+  "top_rois": [
+    0,
+    12,
+    27,
+    24,
+    9
+  ],
+  "top_roi_values": [
+    0.5000000596046448,
+    0.017309678718447685,
+    0.016328252851963043,
+    0.01600499637424946,
+    0.015760960057377815
+  ],
+  "attribution_method": "latent_decoder_projection",
+  "sample_index": 0
+}

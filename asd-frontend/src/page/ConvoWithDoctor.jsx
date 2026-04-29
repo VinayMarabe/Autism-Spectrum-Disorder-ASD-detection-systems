@@ -8,12 +8,6 @@ import { getPatient } from "../api/patients";
 import { useActivePatient } from "../context/ActivePatientContext";
 import i18n from "../i18n";
 
-const introMessage = {
-  from: "assistant",
-  text:
-    "This workspace connects to dr.THYNK's backend. Ask focused clinical questions and the assistant will cite patient-specific evidence.",
-};
-
 const ConvoWithDoctor = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
@@ -22,7 +16,7 @@ const ConvoWithDoctor = () => {
   const fallbackPatient = state?.patient || null;
   const uiPatient = activePatient || fallbackPatient;
   const [patientDetail, setPatientDetail] = useState(null);
-  const [messages, setMessages] = useState([introMessage]);
+  const [messages, setMessages] = useState([]);
   const [evidence, setEvidence] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -38,7 +32,8 @@ const ConvoWithDoctor = () => {
     const loadContext = async () => {
       if (!uiPatient?.id) {
         setPatientDetail(null);
-        setMessages([introMessage]);
+        setMessages([]);
+        setEvidence([]);
         return;
       }
       setHistoryLoading(true);
@@ -55,7 +50,11 @@ const ConvoWithDoctor = () => {
           createdAt: entry.created_at,
           sources: entry.sources || [],
         }));
-        setMessages([introMessage, ...historyMessages]);
+        setMessages(historyMessages);
+        const latestSources = [...historyMessages]
+          .reverse()
+          .find((item) => item.from === "assistant" && item.sources?.length)?.sources;
+        setEvidence(latestSources || []);
       } catch (err) {
         console.warn("Failed to hydrate chat", err);
       } finally {
@@ -93,13 +92,14 @@ const ConvoWithDoctor = () => {
         },
       };
       const resp = await sendChatMessage(uiPatient.id, payload);
-      const assistantMsg = {
-        from: "assistant",
-        text: resp.reply,
-        createdAt: new Date().toISOString(),
-      };
+      const syncedHistory = (resp.history || []).map((entry) => ({
+        from: entry.role === "assistant" ? "assistant" : "user",
+        text: entry.content,
+        createdAt: entry.created_at,
+        sources: entry.sources || [],
+      }));
+      setMessages(syncedHistory);
       setEvidence(resp.evidence || []);
-      setMessages((prev) => [...prev, assistantMsg]);
     } catch (err) {
       console.error(err);
       setError(
@@ -158,6 +158,12 @@ const ConvoWithDoctor = () => {
             <div className="flex-1 p-4 space-y-3 overflow-y-auto">
               {historyLoading && (
                 <div className="text-[11px] text-slate-400">Loading history…</div>
+              )}
+              {!historyLoading && messages.length === 0 && (
+                <div className="rounded-2xl bg-slate-50 border border-slate-100 px-3 py-3 text-xs text-slate-600">
+                  No chat history yet for this patient. Ask about the latest screening,
+                  MRI findings, severity bucket, or supporting evidence.
+                </div>
               )}
               {messages.map((m, idx) => (
                 <div
@@ -248,6 +254,14 @@ const ConvoWithDoctor = () => {
                 <p>
                   Severity bucket: {latestSnapshot.severity_bucket || "—"}
                 </p>
+                {latestSnapshot.created_at && (
+                  <p className="text-slate-400">
+                    Recorded: {new Date(latestSnapshot.created_at).toLocaleString()}
+                  </p>
+                )}
+                {latestSnapshot.metadata?.model && (
+                  <p>Model: {latestSnapshot.metadata.model}</p>
+                )}
               </div>
             )}
 

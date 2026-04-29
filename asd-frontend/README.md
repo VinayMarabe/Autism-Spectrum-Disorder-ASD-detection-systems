@@ -52,7 +52,7 @@ The app will open at `http://localhost:3000`
 
 Create `.env` in the project root:
 ```
-REACT_APP_API_BASE=http://127.0.0.1:8001
+REACT_APP_API_BASE=http://127.0.0.1:8000
 ```
 
 ## Development

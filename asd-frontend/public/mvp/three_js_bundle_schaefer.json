@@ -1,0 +1,1837 @@
+{
+  "version": "1.1",
+  "atlas": "Schaefer-100",
+  "prediction": {
+    "label": "ASD",
+    "probability": 0.649,
+    "confidence": 0.149
+  },
+  "rois": [
+    {
+      "id": 0,
+      "label": "Schaefer_Vis_1",
+      "coords": [
+        -54.072,
+        -68.307,
+        12.586
+      ],
+      "importance": 0.502144,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 1,
+      "label": "Schaefer_Vis_2",
+      "coords": [
+        18.857,
+        -91.102,
+        5.377
+      ],
+      "importance": 0.496227,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 2,
+      "label": "Schaefer_Vis_3",
+      "coords": [
+        -24.032,
+        -93.507,
+        19.367
+      ],
+      "importance": 0.466227,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 3,
+      "label": "Schaefer_Vis_4",
+      "coords": [
+        25.792,
+        -67.451,
+        3.227
+      ],
+      "importance": 0.447326,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 4,
+      "label": "Schaefer_Vis_5",
+      "coords": [
+        -47.667,
+        -74.595,
+        -8.849
+      ],
+      "importance": 0.432722,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 5,
+      "label": "Schaefer_Vis_6",
+      "coords": [
+        23.489,
+        -69.695,
+        -3.616
+      ],
+      "importance": 0.423067,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 6,
+      "label": "Schaefer_Vis_7",
+      "coords": [
+        -37.423,
+        -64.743,
+        11.707
+      ],
+      "importance": 0.405464,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 7,
+      "label": "Schaefer_Vis_8",
+      "coords": [
+        36.361,
+        -92.864,
+        16.805
+      ],
+      "importance": 0.388237,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 8,
+      "label": "Schaefer_Vis_9",
+      "coords": [
+        -46.429,
+        -98.602,
+        -2.579
+      ],
+      "importance": 0.368229,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 9,
+      "label": "Schaefer_Vis_10",
+      "coords": [
+        43.19,
+        -94.758,
+        -2.774
+      ],
+      "importance": 0.354747,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 10,
+      "label": "Schaefer_Vis_11",
+      "coords": [
+        -55.856,
+        -74.631,
+        14.154
+      ],
+      "importance": 0.33893,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 11,
+      "label": "Schaefer_Vis_12",
+      "coords": [
+        26.023,
+        -85.936,
+        -8.686
+      ],
+      "importance": 0.329933,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 12,
+      "label": "Schaefer_Vis_13",
+      "coords": [
+        -28.98,
+        -77.852,
+        10.23
+      ],
+      "importance": 0.312057,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 13,
+      "label": "Schaefer_Vis_14",
+      "coords": [
+        49.971,
+        -77.73,
+        11.906
+      ],
+      "importance": 0.299998,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 14,
+      "label": "Schaefer_Vis_15",
+      "coords": [
+        -50.768,
+        -77.276,
+        7.391
+      ],
+      "importance": 0.290271,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 15,
+      "label": "Schaefer_Vis_16",
+      "coords": [
+        51.332,
+        -87.316,
+        13.896
+      ],
+      "importance": 0.274501,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 16,
+      "label": "Schaefer_SomMot_1",
+      "coords": [
+        -39.725,
+        -18.725,
+        36.876
+      ],
+      "importance": 0.277296,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 17,
+      "label": "Schaefer_SomMot_2",
+      "coords": [
+        26.86,
+        -23.545,
+        34.791
+      ],
+      "importance": 0.264633,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 18,
+      "label": "Schaefer_SomMot_3",
+      "coords": [
+        -45.169,
+        -42.96,
+        35.602
+      ],
+      "importance": 0.244866,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 19,
+      "label": "Schaefer_SomMot_4",
+      "coords": [
+        65.94,
+        -45.197,
+        27.564
+      ],
+      "importance": 0.251011,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 20,
+      "label": "Schaefer_SomMot_5",
+      "coords": [
+        -69.136,
+        -36.193,
+        51.856
+      ],
+      "importance": 0.226952,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 21,
+      "label": "Schaefer_SomMot_6",
+      "coords": [
+        20.728,
+        -10.395,
+        33.963
+      ],
+      "importance": 0.217961,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 22,
+      "label": "Schaefer_SomMot_7",
+      "coords": [
+        -41.233,
+        -11.944,
+        35.777
+      ],
+      "importance": 0.21639,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 23,
+      "label": "Schaefer_SomMot_8",
+      "coords": [
+        55.358,
+        -33.833,
+        32.409
+      ],
+      "importance": 0.214421,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 24,
+      "label": "Schaefer_SomMot_9",
+      "coords": [
+        -23.577,
+        -43.851,
+        27.975
+      ],
+      "importance": 0.194521,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 25,
+      "label": "Schaefer_SomMot_10",
+      "coords": [
+        29.855,
+        -34.448,
+        27.651
+      ],
+      "importance": 0.186585,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 26,
+      "label": "Schaefer_SomMot_11",
+      "coords": [
+        -36.439,
+        -12.032,
+        32.552
+      ],
+      "importance": 0.185491,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 27,
+      "label": "Schaefer_SomMot_12",
+      "coords": [
+        49.583,
+        -32.247,
+        36.529
+      ],
+      "importance": 0.179606,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 28,
+      "label": "Schaefer_SomMot_13",
+      "coords": [
+        -37.149,
+        -43.855,
+        34.825
+      ],
+      "importance": 0.176823,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 29,
+      "label": "Schaefer_SomMot_14",
+      "coords": [
+        54.782,
+        -35.548,
+        34.632
+      ],
+      "importance": 0.167712,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 30,
+      "label": "Schaefer_SomMot_15",
+      "coords": [
+        -54.285,
+        -18.584,
+        39.664
+      ],
+      "importance": 0.165575,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 31,
+      "label": "Schaefer_SomMot_16",
+      "coords": [
+        52.66,
+        -25.266,
+        30.026
+      ],
+      "importance": 0.15742,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 32,
+      "label": "Schaefer_DorsAttn_1",
+      "coords": [
+        -65.42,
+        -12.141,
+        61.896
+      ],
+      "importance": 0.155125,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 33,
+      "label": "Schaefer_DorsAttn_2",
+      "coords": [
+        23.029,
+        -28.45,
+        40.646
+      ],
+      "importance": 0.152916,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 34,
+      "label": "Schaefer_DorsAttn_3",
+      "coords": [
+        -54.976,
+        -6.15,
+        57.415
+      ],
+      "importance": 0.137402,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 35,
+      "label": "Schaefer_DorsAttn_4",
+      "coords": [
+        32.84,
+        -12.429,
+        64.97
+      ],
+      "importance": 0.131281,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 36,
+      "label": "Schaefer_DorsAttn_5",
+      "coords": [
+        -60.681,
+        -0.486,
+        48.003
+      ],
+      "importance": 0.118954,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 37,
+      "label": "Schaefer_DorsAttn_6",
+      "coords": [
+        55.192,
+        -28.225,
+        40.744
+      ],
+      "importance": 0.1305,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 38,
+      "label": "Schaefer_DorsAttn_7",
+      "coords": [
+        -17.066,
+        -13.881,
+        38.739
+      ],
+      "importance": 0.124801,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 39,
+      "label": "Schaefer_DorsAttn_8",
+      "coords": [
+        49.939,
+        -19.854,
+        42.42
+      ],
+      "importance": 0.107757,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 40,
+      "label": "Schaefer_DorsAttn_9",
+      "coords": [
+        -46.373,
+        -27.124,
+        60.677
+      ],
+      "importance": 0.108518,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 41,
+      "label": "Schaefer_DorsAttn_10",
+      "coords": [
+        29.599,
+        -12.966,
+        52.673
+      ],
+      "importance": 0.109155,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 42,
+      "label": "Schaefer_DorsAttn_11",
+      "coords": [
+        -67.925,
+        -30.508,
+        50.482
+      ],
+      "importance": 0.098275,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 43,
+      "label": "Schaefer_DorsAttn_12",
+      "coords": [
+        33.695,
+        -26.949,
+        43.874
+      ],
+      "importance": 0.101217,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 44,
+      "label": "Schaefer_DorsAttn_13",
+      "coords": [
+        -31.271,
+        -25.502,
+        46.274
+      ],
+      "importance": 0.094876,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 45,
+      "label": "Schaefer_DorsAttn_14",
+      "coords": [
+        51.044,
+        -38.935,
+        57.252
+      ],
+      "importance": 0.086047,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 46,
+      "label": "Schaefer_SalVentAttn_1",
+      "coords": [
+        -51.803,
+        21.319,
+        26.928
+      ],
+      "importance": 0.097792,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 47,
+      "label": "Schaefer_SalVentAttn_2",
+      "coords": [
+        65.958,
+        4.74,
+        15.814
+      ],
+      "importance": 0.079678,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 48,
+      "label": "Schaefer_SalVentAttn_3",
+      "coords": [
+        -50.737,
+        9.726,
+        0.658
+      ],
+      "importance": 0.075761,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 49,
+      "label": "Schaefer_SalVentAttn_4",
+      "coords": [
+        26.254,
+        32.01,
+        18.418
+      ],
+      "importance": 0.07342,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 50,
+      "label": "Schaefer_SalVentAttn_5",
+      "coords": [
+        -31.208,
+        36.853,
+        4.288
+      ],
+      "importance": 0.086343,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 51,
+      "label": "Schaefer_SalVentAttn_6",
+      "coords": [
+        69.584,
+        5.089,
+        20.78
+      ],
+      "importance": 0.073649,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 52,
+      "label": "Schaefer_SalVentAttn_7",
+      "coords": [
+        -30.24,
+        30.93,
+        5.401
+      ],
+      "importance": 0.082409,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 53,
+      "label": "Schaefer_SalVentAttn_8",
+      "coords": [
+        40.649,
+        19.813,
+        27.929
+      ],
+      "importance": 0.065455,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 54,
+      "label": "Schaefer_SalVentAttn_9",
+      "coords": [
+        -32.472,
+        26.34,
+        22.883
+      ],
+      "importance": 0.074025,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 55,
+      "label": "Schaefer_SalVentAttn_10",
+      "coords": [
+        68.793,
+        39.876,
+        27.601
+      ],
+      "importance": 0.067328,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 56,
+      "label": "Schaefer_SalVentAttn_11",
+      "coords": [
+        -66.084,
+        7.322,
+        13.325
+      ],
+      "importance": 0.06994,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 57,
+      "label": "Schaefer_SalVentAttn_12",
+      "coords": [
+        27.957,
+        0.127,
+        1.146
+      ],
+      "importance": 0.069171,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 58,
+      "label": "Schaefer_SalVentAttn_13",
+      "coords": [
+        -38.754,
+        32.249,
+        3.64
+      ],
+      "importance": 0.055559,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 59,
+      "label": "Schaefer_SalVentAttn_14",
+      "coords": [
+        68.587,
+        14.978,
+        8.618
+      ],
+      "importance": 0.053651,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 60,
+      "label": "Schaefer_Limbic_1",
+      "coords": [
+        -36.43,
+        43.863,
+        -5.216
+      ],
+      "importance": 0.053284,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 61,
+      "label": "Schaefer_Limbic_2",
+      "coords": [
+        33.272,
+        41.103,
+        -1.355
+      ],
+      "importance": 0.063205,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 62,
+      "label": "Schaefer_Limbic_3",
+      "coords": [
+        -26.965,
+        15.419,
+        -19.933
+      ],
+      "importance": 0.048312,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 63,
+      "label": "Schaefer_Limbic_4",
+      "coords": [
+        47.274,
+        44.27,
+        -7.185
+      ],
+      "importance": 0.059008,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 64,
+      "label": "Schaefer_Limbic_5",
+      "coords": [
+        -69.958,
+        46.204,
+        -6.597
+      ],
+      "importance": 0.046398,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 65,
+      "label": "Schaefer_Limbic_6",
+      "coords": [
+        39.949,
+        39.542,
+        -13.247
+      ],
+      "importance": 0.050659,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 66,
+      "label": "Schaefer_Limbic_7",
+      "coords": [
+        -56.051,
+        30.259,
+        -28.907
+      ],
+      "importance": 0.049481,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 67,
+      "label": "Schaefer_Limbic_8",
+      "coords": [
+        19.983,
+        40.385,
+        -17.568
+      ],
+      "importance": 0.045725,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 68,
+      "label": "Schaefer_Limbic_9",
+      "coords": [
+        -39.716,
+        12.517,
+        -14.821
+      ],
+      "importance": 0.040422,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 69,
+      "label": "Schaefer_Limbic_10",
+      "coords": [
+        45.207,
+        45.228,
+        -1.326
+      ],
+      "importance": 0.049736,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 70,
+      "label": "Schaefer_Limbic_11",
+      "coords": [
+        -48.346,
+        14.398,
+        -27.423
+      ],
+      "importance": 0.041884,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 71,
+      "label": "Schaefer_Limbic_12",
+      "coords": [
+        42.978,
+        27.242,
+        -4.072
+      ],
+      "importance": 0.048541,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 72,
+      "label": "Schaefer_Limbic_13",
+      "coords": [
+        -44.431,
+        26.162,
+        -5.141
+      ],
+      "importance": 0.047978,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 73,
+      "label": "Schaefer_Limbic_14",
+      "coords": [
+        66.524,
+        14.375,
+        -16.149
+      ],
+      "importance": 0.033068,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 74,
+      "label": "Schaefer_Cont_1",
+      "coords": [
+        -34.011,
+        25.468,
+        27.662
+      ],
+      "importance": 0.034689,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 75,
+      "label": "Schaefer_Cont_2",
+      "coords": [
+        62.367,
+        28.756,
+        34.582
+      ],
+      "importance": 0.028853,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 76,
+      "label": "Schaefer_Cont_3",
+      "coords": [
+        -28.631,
+        4.713,
+        36.171
+      ],
+      "importance": 0.030176,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 77,
+      "label": "Schaefer_Cont_4",
+      "coords": [
+        45.271,
+        14.313,
+        28.838
+      ],
+      "importance": 0.042671,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 78,
+      "label": "Schaefer_Cont_5",
+      "coords": [
+        -30.369,
+        3.216,
+        37.914
+      ],
+      "importance": 0.034498,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 79,
+      "label": "Schaefer_Cont_6",
+      "coords": [
+        26.998,
+        26.679,
+        47.666
+      ],
+      "importance": 0.022792,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 80,
+      "label": "Schaefer_Cont_7",
+      "coords": [
+        -40.908,
+        2.785,
+        45.275
+      ],
+      "importance": 0.032828,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 81,
+      "label": "Schaefer_Cont_8",
+      "coords": [
+        62.946,
+        9.527,
+        43.958
+      ],
+      "importance": 0.037258,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 82,
+      "label": "Schaefer_Cont_9",
+      "coords": [
+        -50.812,
+        1.274,
+        46.795
+      ],
+      "importance": 0.034702,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 83,
+      "label": "Schaefer_Cont_10",
+      "coords": [
+        56.28,
+        39.369,
+        38.944
+      ],
+      "importance": 0.032059,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 84,
+      "label": "Schaefer_Cont_11",
+      "coords": [
+        -19.209,
+        28.824,
+        30.293
+      ],
+      "importance": 0.025066,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 85,
+      "label": "Schaefer_Cont_12",
+      "coords": [
+        61.137,
+        17.658,
+        46.953
+      ],
+      "importance": 0.027786,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 86,
+      "label": "Schaefer_Cont_13",
+      "coords": [
+        -52.576,
+        11.448,
+        27.995
+      ],
+      "importance": 0.021431,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 87,
+      "label": "Schaefer_Cont_14",
+      "coords": [
+        68.971,
+        36.149,
+        33.639
+      ],
+      "importance": 0.034014,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 88,
+      "label": "Schaefer_Default_1",
+      "coords": [
+        -59.168,
+        33.321,
+        17.297
+      ],
+      "importance": 0.027003,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 89,
+      "label": "Schaefer_Default_2",
+      "coords": [
+        40.301,
+        48.147,
+        26.655
+      ],
+      "importance": 0.017394,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 90,
+      "label": "Schaefer_Default_3",
+      "coords": [
+        -57.525,
+        34.882,
+        27.808
+      ],
+      "importance": 0.015291,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 91,
+      "label": "Schaefer_Default_4",
+      "coords": [
+        61.304,
+        32.861,
+        23.671
+      ],
+      "importance": 0.013591,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 92,
+      "label": "Schaefer_Default_5",
+      "coords": [
+        -44.535,
+        12.975,
+        26.425
+      ],
+      "importance": 0.028304,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 93,
+      "label": "Schaefer_Default_6",
+      "coords": [
+        38.221,
+        37.069,
+        31.198
+      ],
+      "importance": 0.027456,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 94,
+      "label": "Schaefer_Default_7",
+      "coords": [
+        -60.641,
+        42.791,
+        34.609
+      ],
+      "importance": 0.021454,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 95,
+      "label": "Schaefer_Default_8",
+      "coords": [
+        35.924,
+        39.354,
+        11.961
+      ],
+      "importance": 0.030728,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 96,
+      "label": "Schaefer_Default_9",
+      "coords": [
+        -19.193,
+        18.286,
+        5.468
+      ],
+      "importance": 0.022393,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 97,
+      "label": "Schaefer_Default_10",
+      "coords": [
+        17.793,
+        41.365,
+        8.757
+      ],
+      "importance": 0.012989,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 98,
+      "label": "Schaefer_Default_11",
+      "coords": [
+        -30.004,
+        28.999,
+        21.588
+      ],
+      "importance": 0.024991,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 99,
+      "label": "Schaefer_Default_12",
+      "coords": [
+        59.074,
+        30.796,
+        30.669
+      ],
+      "importance": 0.010378,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 100,
+      "label": "Schaefer_Default_13",
+      "coords": [
+        -43.259,
+        28.335,
+        26.681
+      ],
+      "importance": 0.028467,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    },
+    {
+      "id": 101,
+      "label": "Schaefer_Default_14",
+      "coords": [
+        63.192,
+        29.164,
+        31.992
+      ],
+      "importance": 0.023152,
+      "color": "rgba(100,100,200,0.78)",
+      "size": 2
+    }
+  ],
+  "connections": [
+    {
+      "roi_from": 11,
+      "roi_to": 36,
+      "strength": 0.2783
+    },
+    {
+      "roi_from": 96,
+      "roi_to": 32,
+      "strength": -0.2462
+    },
+    {
+      "roi_from": 40,
+      "roi_to": 89,
+      "strength": 0.3691
+    },
+    {
+      "roi_from": 19,
+      "roi_to": 22,
+      "strength": 0.2485
+    },
+    {
+      "roi_from": 5,
+      "roi_to": 97,
+      "strength": 0.307
+    },
+    {
+      "roi_from": 87,
+      "roi_to": 13,
+      "strength": -0.2588
+    },
+    {
+      "roi_from": 71,
+      "roi_to": 37,
+      "strength": 0.1545
+    },
+    {
+      "roi_from": 59,
+      "roi_to": 51,
+      "strength": 0.3662
+    },
+    {
+      "roi_from": 80,
+      "roi_to": 14,
+      "strength": 0.0296
+    },
+    {
+      "roi_from": 44,
+      "roi_to": 8,
+      "strength": -0.2926
+    },
+    {
+      "roi_from": 1,
+      "roi_to": 17,
+      "strength": 0.3384
+    },
+    {
+      "roi_from": 24,
+      "roi_to": 4,
+      "strength": -0.0557
+    },
+    {
+      "roi_from": 95,
+      "roi_to": 101,
+      "strength": 0.3401
+    },
+    {
+      "roi_from": 51,
+      "roi_to": 81,
+      "strength": 0.0359
+    },
+    {
+      "roi_from": 24,
+      "roi_to": 1,
+      "strength": 0.1347
+    },
+    {
+      "roi_from": 43,
+      "roi_to": 4,
+      "strength": -0.2477
+    },
+    {
+      "roi_from": 95,
+      "roi_to": 57,
+      "strength": 0.4776
+    },
+    {
+      "roi_from": 61,
+      "roi_to": 3,
+      "strength": -0.1012
+    },
+    {
+      "roi_from": 48,
+      "roi_to": 84,
+      "strength": 0.4479
+    },
+    {
+      "roi_from": 51,
+      "roi_to": 72,
+      "strength": 0.2766
+    },
+    {
+      "roi_from": 68,
+      "roi_to": 49,
+      "strength": -0.2859
+    },
+    {
+      "roi_from": 59,
+      "roi_to": 19,
+      "strength": -0.2202
+    },
+    {
+      "roi_from": 37,
+      "roi_to": 69,
+      "strength": -0.2602
+    },
+    {
+      "roi_from": 96,
+      "roi_to": 67,
+      "strength": -0.1886
+    },
+    {
+      "roi_from": 59,
+      "roi_to": 53,
+      "strength": -0.2117
+    },
+    {
+      "roi_from": 21,
+      "roi_to": 17,
+      "strength": -0.1788
+    },
+    {
+      "roi_from": 30,
+      "roi_to": 4,
+      "strength": -0.1704
+    },
+    {
+      "roi_from": 73,
+      "roi_to": 65,
+      "strength": 0.0803
+    },
+    {
+      "roi_from": 77,
+      "roi_to": 88,
+      "strength": 0.019
+    },
+    {
+      "roi_from": 36,
+      "roi_to": 6,
+      "strength": -0.1486
+    },
+    {
+      "roi_from": 23,
+      "roi_to": 20,
+      "strength": -0.2996
+    },
+    {
+      "roi_from": 62,
+      "roi_to": 45,
+      "strength": -0.108
+    },
+    {
+      "roi_from": 4,
+      "roi_to": 89,
+      "strength": 0.2693
+    },
+    {
+      "roi_from": 63,
+      "roi_to": 25,
+      "strength": -0.2072
+    },
+    {
+      "roi_from": 79,
+      "roi_to": 62,
+      "strength": -0.306
+    },
+    {
+      "roi_from": 42,
+      "roi_to": 54,
+      "strength": -0.1655
+    },
+    {
+      "roi_from": 17,
+      "roi_to": 4,
+      "strength": -0.3087
+    },
+    {
+      "roi_from": 82,
+      "roi_to": 100,
+      "strength": 0.2718
+    },
+    {
+      "roi_from": 39,
+      "roi_to": 63,
+      "strength": 0.2737
+    },
+    {
+      "roi_from": 22,
+      "roi_to": 73,
+      "strength": 0.2253
+    },
+    {
+      "roi_from": 16,
+      "roi_to": 12,
+      "strength": 0.1089
+    },
+    {
+      "roi_from": 56,
+      "roi_to": 26,
+      "strength": 0.1324
+    },
+    {
+      "roi_from": 88,
+      "roi_to": 71,
+      "strength": 0.0059
+    },
+    {
+      "roi_from": 66,
+      "roi_to": 12,
+      "strength": -0.2516
+    },
+    {
+      "roi_from": 88,
+      "roi_to": 91,
+      "strength": -0.2452
+    },
+    {
+      "roi_from": 82,
+      "roi_to": 94,
+      "strength": 0.1505
+    },
+    {
+      "roi_from": 85,
+      "roi_to": 0,
+      "strength": 0.3574
+    },
+    {
+      "roi_from": 101,
+      "roi_to": 93,
+      "strength": 0.2468
+    },
+    {
+      "roi_from": 4,
+      "roi_to": 81,
+      "strength": -0.1646
+    },
+    {
+      "roi_from": 79,
+      "roi_to": 31,
+      "strength": 0.45
+    },
+    {
+      "roi_from": 43,
+      "roi_to": 22,
+      "strength": 0.0446
+    },
+    {
+      "roi_from": 19,
+      "roi_to": 26,
+      "strength": 0.0195
+    },
+    {
+      "roi_from": 51,
+      "roi_to": 76,
+      "strength": 0.1742
+    },
+    {
+      "roi_from": 79,
+      "roi_to": 7,
+      "strength": -0.2787
+    },
+    {
+      "roi_from": 19,
+      "roi_to": 70,
+      "strength": 0.0653
+    },
+    {
+      "roi_from": 62,
+      "roi_to": 20,
+      "strength": 0.1879
+    },
+    {
+      "roi_from": 60,
+      "roi_to": 40,
+      "strength": -0.1617
+    },
+    {
+      "roi_from": 92,
+      "roi_to": 67,
+      "strength": 0.2434
+    },
+    {
+      "roi_from": 28,
+      "roi_to": 77,
+      "strength": -0.1815
+    },
+    {
+      "roi_from": 6,
+      "roi_to": 71,
+      "strength": 0.045
+    },
+    {
+      "roi_from": 50,
+      "roi_to": 40,
+      "strength": 0.3548
+    },
+    {
+      "roi_from": 73,
+      "roi_to": 29,
+      "strength": 0.3731
+    },
+    {
+      "roi_from": 98,
+      "roi_to": 79,
+      "strength": 0.3172
+    },
+    {
+      "roi_from": 59,
+      "roi_to": 80,
+      "strength": 0.0571
+    },
+    {
+      "roi_from": 88,
+      "roi_to": 33,
+      "strength": 0.0515
+    },
+    {
+      "roi_from": 72,
+      "roi_to": 7,
+      "strength": -0.3073
+    },
+    {
+      "roi_from": 38,
+      "roi_to": 74,
+      "strength": 0.4428
+    },
+    {
+      "roi_from": 73,
+      "roi_to": 83,
+      "strength": -0.0828
+    },
+    {
+      "roi_from": 70,
+      "roi_to": 45,
+      "strength": 0.0875
+    },
+    {
+      "roi_from": 68,
+      "roi_to": 48,
+      "strength": 0.3814
+    },
+    {
+      "roi_from": 52,
+      "roi_to": 73,
+      "strength": 0.1782
+    },
+    {
+      "roi_from": 56,
+      "roi_to": 90,
+      "strength": 0.0472
+    },
+    {
+      "roi_from": 60,
+      "roi_to": 41,
+      "strength": 0.2508
+    },
+    {
+      "roi_from": 32,
+      "roi_to": 26,
+      "strength": -0.0111
+    },
+    {
+      "roi_from": 14,
+      "roi_to": 95,
+      "strength": 0.1129
+    },
+    {
+      "roi_from": 21,
+      "roi_to": 90,
+      "strength": -0.2636
+    },
+    {
+      "roi_from": 61,
+      "roi_to": 30,
+      "strength": -0.0339
+    },
+    {
+      "roi_from": 52,
+      "roi_to": 77,
+      "strength": -0.1158
+    },
+    {
+      "roi_from": 64,
+      "roi_to": 2,
+      "strength": -0.1176
+    },
+    {
+      "roi_from": 45,
+      "roi_to": 35,
+      "strength": 0.107
+    },
+    {
+      "roi_from": 25,
+      "roi_to": 101,
+      "strength": -0.3195
+    },
+    {
+      "roi_from": 97,
+      "roi_to": 96,
+      "strength": 0.2463
+    },
+    {
+      "roi_from": 52,
+      "roi_to": 91,
+      "strength": 0.3479
+    },
+    {
+      "roi_from": 31,
+      "roi_to": 57,
+      "strength": 0.4728
+    },
+    {
+      "roi_from": 8,
+      "roi_to": 83,
+      "strength": 0.138
+    },
+    {
+      "roi_from": 62,
+      "roi_to": 68,
+      "strength": 0.3004
+    },
+    {
+      "roi_from": 27,
+      "roi_to": 75,
+      "strength": 0.2775
+    },
+    {
+      "roi_from": 59,
+      "roi_to": 67,
+      "strength": 0.4328
+    },
+    {
+      "roi_from": 7,
+      "roi_to": 8,
+      "strength": -0.1434
+    },
+    {
+      "roi_from": 43,
+      "roi_to": 17,
+      "strength": 0.063
+    },
+    {
+      "roi_from": 93,
+      "roi_to": 78,
+      "strength": 0.0205
+    },
+    {
+      "roi_from": 33,
+      "roi_to": 56,
+      "strength": 0.3702
+    },
+    {
+      "roi_from": 13,
+      "roi_to": 60,
+      "strength": 0.4419
+    },
+    {
+      "roi_from": 33,
+      "roi_to": 59,
+      "strength": 0.2849
+    },
+    {
+      "roi_from": 76,
+      "roi_to": 41,
+      "strength": -0.2939
+    },
+    {
+      "roi_from": 20,
+      "roi_to": 90,
+      "strength": -0.1568
+    },
+    {
+      "roi_from": 35,
+      "roi_to": 4,
+      "strength": -0.2229
+    },
+    {
+      "roi_from": 9,
+      "roi_to": 22,
+      "strength": 0.0375
+    },
+    {
+      "roi_from": 82,
+      "roi_to": 76,
+      "strength": 0.0771
+    },
+    {
+      "roi_from": 60,
+      "roi_to": 32,
+      "strength": 0.4121
+    },
+    {
+      "roi_from": 83,
+      "roi_to": 32,
+      "strength": -0.0125
+    },
+    {
+      "roi_from": 88,
+      "roi_to": 94,
+      "strength": -0.1125
+    },
+    {
+      "roi_from": 98,
+      "roi_to": 22,
+      "strength": 0.4362
+    },
+    {
+      "roi_from": 27,
+      "roi_to": 80,
+      "strength": -0.1009
+    },
+    {
+      "roi_from": 85,
+      "roi_to": 83,
+      "strength": 0.2065
+    },
+    {
+      "roi_from": 33,
+      "roi_to": 74,
+      "strength": 0.2924
+    },
+    {
+      "roi_from": 76,
+      "roi_to": 80,
+      "strength": -0.2855
+    },
+    {
+      "roi_from": 98,
+      "roi_to": 96,
+      "strength": -0.1688
+    },
+    {
+      "roi_from": 0,
+      "roi_to": 33,
+      "strength": 0.2715
+    },
+    {
+      "roi_from": 58,
+      "roi_to": 51,
+      "strength": 0.0617
+    },
+    {
+      "roi_from": 50,
+      "roi_to": 0,
+      "strength": 0.0072
+    },
+    {
+      "roi_from": 96,
+      "roi_to": 79,
+      "strength": 0.4146
+    },
+    {
+      "roi_from": 39,
+      "roi_to": 4,
+      "strength": 0.1177
+    },
+    {
+      "roi_from": 8,
+      "roi_to": 9,
+      "strength": -0.0745
+    },
+    {
+      "roi_from": 26,
+      "roi_to": 62,
+      "strength": -0.2485
+    },
+    {
+      "roi_from": 70,
+      "roi_to": 44,
+      "strength": -0.2194
+    },
+    {
+      "roi_from": 84,
+      "roi_to": 96,
+      "strength": 0.1178
+    },
+    {
+      "roi_from": 10,
+      "roi_to": 48,
+      "strength": -0.2961
+    },
+    {
+      "roi_from": 55,
+      "roi_to": 71,
+      "strength": -0.3121
+    },
+    {
+      "roi_from": 46,
+      "roi_to": 26,
+      "strength": 0.32
+    }
+  ]
+}

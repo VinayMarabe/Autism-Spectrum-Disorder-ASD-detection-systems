@@ -1,0 +1,23 @@
+{
+  "prediction": "ASD",
+  "probability": 0.649,
+  "confidence": 0.149,
+  "atlas": "Schaefer-100",
+  "n_rois": 100,
+  "top_rois": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "top_roi_values": [
+    0.5,
+    0.4,
+    0.35,
+    0.3,
+    0.28
+  ],
+  "attribution_method": "latent_decoder_projection",
+  "sample_index": 0
+}

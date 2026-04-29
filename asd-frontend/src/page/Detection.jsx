@@ -202,7 +202,7 @@ const Detection = () => {
   // 👉 navigate to heatmap journey with data
   const goToHeatmapJourney = () => {
     if (!result) return;
-    navigate("/heatmap-journey", {
+    navigate("/how-it-works", {
       state: {
         result,
         patient: activePatient || null,
@@ -520,7 +520,7 @@ const Detection = () => {
                     onClick={goToHeatmapJourney}
                     className="px-3 py-2 rounded-2xl bg-sky-50 border border-sky-200 text-sky-800 text-sm font-medium"
                   >
-                    View heatmap journey
+                    View walkthrough and report
                   </button>
                 </div>
               </div>
