@@ -240,8 +240,8 @@ export default function HowItWorks() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-gradient-to-b from-sky-50 via-white to-emerald-50">
-      <div className="max-w-7xl mx-auto px-6 py-8">
+    <div className="animate-fade-in pb-12">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between mb-8">
           <div className="space-y-3">
             <button
@@ -272,20 +272,20 @@ export default function HowItWorks() {
             </div>
           </div>
 
-          <div className="bg-white border border-slate-200 rounded-2xl shadow-sm p-4 min-w-[280px]">
-            <div className="text-xs uppercase tracking-wide text-slate-500">
+          <div className="card min-w-[280px]">
+            <div className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">
               Active patient
             </div>
-            <div className="text-lg font-semibold text-slate-900 mt-1">
+            <div className="text-xl font-bold text-slate-900 mt-1 tracking-tight">
               {patientLabel}
             </div>
-            <div className="text-xs text-slate-500 mt-2">
-              Current model context: <span className="font-medium text-slate-700">{activeModel}</span>
+            <div className="text-xs font-medium text-slate-500 mt-2">
+              Current model context: <span className="font-bold text-primary-700 bg-primary-50 px-2 py-0.5 rounded ml-1">{activeModel}</span>
             </div>
             {result && (
               <button
                 onClick={openConvo}
-                className="mt-4 inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-900 text-white text-xs font-semibold hover:bg-slate-800"
+                className="mt-5 btn bg-slate-800 text-white hover:bg-slate-900 w-full"
               >
                 <MessageCircle size={14} />
                 <span>Open Convo with Dr</span>
@@ -321,11 +321,13 @@ export default function HowItWorks() {
           </section>
         )}
 
-        <section className="mb-8 grid grid-cols-1 xl:grid-cols-3 gap-6">
-          <div className="xl:col-span-2 bg-white border border-slate-200 rounded-3xl shadow-sm p-6">
-            <div className="flex items-center gap-2 mb-4">
-              <BookOpen size={16} className="text-sky-500" />
-              <h2 className="text-lg font-semibold text-slate-900">
+        <section className="mb-8 grid grid-cols-1 xl:grid-cols-3 gap-6 md:gap-8">
+          <div className="xl:col-span-2 card">
+            <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+              <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center">
+                <BookOpen size={20} className="text-sky-600" />
+              </div>
+              <h2 className="text-xl font-bold text-slate-900 tracking-tight">
                 Actual MRI Screening Pipeline
               </h2>
             </div>
@@ -378,11 +380,13 @@ export default function HowItWorks() {
             </div>
           </div>
 
-          <div className="space-y-6">
-            <div className="bg-white border border-slate-200 rounded-3xl shadow-sm p-6">
-              <div className="flex items-center gap-2 mb-4">
-                <Activity size={16} className="text-emerald-500" />
-                <h2 className="text-lg font-semibold text-slate-900">
+          <div className="space-y-6 md:space-y-8">
+            <div className="card">
+              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+                <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center">
+                  <Activity size={20} className="text-emerald-600" />
+                </div>
+                <h2 className="text-xl font-bold text-slate-900 tracking-tight">
                   Live Backend Model Info
                 </h2>
               </div>
@@ -414,10 +418,12 @@ export default function HowItWorks() {
               </div>
             </div>
 
-            <div className="bg-white border border-slate-200 rounded-3xl shadow-sm p-6">
-              <div className="flex items-center gap-2 mb-4">
-                <Layers size={16} className="text-violet-500" />
-                <h2 className="text-lg font-semibold text-slate-900">
+            <div className="card">
+              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+                <div className="w-10 h-10 rounded-xl bg-violet-50 flex items-center justify-center">
+                  <Layers size={20} className="text-violet-600" />
+                </div>
+                <h2 className="text-xl font-bold text-slate-900 tracking-tight">
                   Atlas Coverage
                 </h2>
               </div>
@@ -446,11 +452,13 @@ export default function HowItWorks() {
           </div>
         </section>
 
-        <section className="mb-8 grid grid-cols-1 xl:grid-cols-2 gap-6">
-          <div className="bg-white border border-slate-200 rounded-3xl shadow-sm p-6">
-            <div className="flex items-center gap-2 mb-4">
-              <FileText size={16} className="text-slate-500" />
-              <h2 className="text-lg font-semibold text-slate-900">
+        <section className="mb-8 grid grid-cols-1 xl:grid-cols-2 gap-6 md:gap-8">
+          <div className="card">
+            <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+              <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center">
+                <FileText size={20} className="text-slate-600" />
+              </div>
+              <h2 className="text-xl font-bold text-slate-900 tracking-tight">
                 Screening Artifact and Report
               </h2>
             </div>
@@ -503,33 +511,31 @@ export default function HowItWorks() {
                   </div>
                 </div>
 
-                <div className="flex flex-wrap gap-2">
                   {reportUrl && (
-                    <>
+                    <div className="flex flex-wrap gap-3 w-full">
                       <button
                         onClick={openReport}
-                        className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800"
+                        className="btn bg-slate-900 text-white hover:bg-slate-800 flex-1 justify-center"
                       >
-                        <ExternalLink size={14} />
+                        <ExternalLink size={16} />
                         <span>Open report</span>
                       </button>
                       <button
                         onClick={downloadReport}
-                        className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-white border border-slate-200 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                        className="btn-ghost flex-1 justify-center"
                       >
                         <DownloadIcon />
-                        <span>Download report</span>
+                        <span>Download PDF</span>
                       </button>
-                    </>
+                    </div>
                   )}
                   <button
                     onClick={openConvo}
-                    className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-sky-50 border border-sky-200 text-sm font-semibold text-sky-800 hover:bg-sky-100"
+                    className="btn bg-primary-50 text-primary-700 hover:bg-primary-100 border border-primary-200 w-full justify-center mt-2"
                   >
-                    <MessageCircle size={14} />
+                    <MessageCircle size={16} />
                     <span>Discuss in Convo with Dr</span>
                   </button>
-                </div>
 
                 <div className="rounded-2xl bg-slate-50 border border-slate-200 p-4">
                   <div className="text-xs uppercase tracking-wide text-slate-500 mb-2">
@@ -543,10 +549,12 @@ export default function HowItWorks() {
             )}
           </div>
 
-          <div className="bg-white border border-slate-200 rounded-3xl shadow-sm p-6">
-            <div className="flex items-center gap-2 mb-4">
-              <RefreshCw size={16} className="text-sky-500" />
-              <h2 className="text-lg font-semibold text-slate-900">
+          <div className="card">
+            <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+              <div className="w-10 h-10 rounded-xl bg-primary-50 flex items-center justify-center">
+                <RefreshCw size={20} className="text-primary-600" />
+              </div>
+              <h2 className="text-xl font-bold text-slate-900 tracking-tight">
                 Saved Visualization Artifact
               </h2>
             </div>

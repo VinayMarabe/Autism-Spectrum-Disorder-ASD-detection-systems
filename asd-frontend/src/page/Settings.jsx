@@ -134,32 +134,32 @@ export default function Settings() {
   }
 
   return (
-    <div className="p-6">
-      <div className="max-w-4xl">
+    <div className="animate-fade-in p-6 md:p-8">
+      <div className="max-w-3xl mx-auto">
         <h1 className="text-3xl font-semibold text-slate-900">{i18n.t("settings_title")}</h1>
         <p className="text-sm text-slate-500 mt-1">{i18n.t("settings_subtitle")}</p>
 
         <div className="mt-6 space-y-6">
 
-          <div className="bg-white rounded-xl p-6 border shadow-sm">
-            <h2 className="text-lg font-semibold text-slate-800">{i18n.t("language_english")}</h2>
+          <div className="card">
+            <h2 className="text-lg font-semibold text-slate-800 tracking-tight">{i18n.t("language_english")}</h2>
             <p className="text-sm text-slate-500 mt-1">{i18n.t("settings_subtitle")}</p>
 
-            <div className="mt-4 flex gap-3">
+            <div className="mt-5 flex flex-wrap gap-3">
               <button
-                className={`px-3 py-2 rounded-md ${lang === "en" ? "bg-sky-600 text-white" : "bg-slate-100"}`}
+                className={`btn px-5 py-2.5 ${lang === "en" ? "bg-primary-500 text-white shadow-md hover:-translate-y-0.5" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}
                 onClick={() => handleLangClick("en")}
               >
                 {i18n.t("language_english")}
               </button>
               <button
-                className={`px-3 py-2 rounded-md ${lang === "hi" ? "bg-sky-600 text-white" : "bg-slate-100"}`}
+                className={`btn px-5 py-2.5 ${lang === "hi" ? "bg-primary-500 text-white shadow-md hover:-translate-y-0.5" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}
                 onClick={() => handleLangClick("hi")}
               >
                 {i18n.t("language_hindi")}
               </button>
               <button
-                className={`px-3 py-2 rounded-md ${lang === "mr" ? "bg-sky-600 text-white" : "bg-slate-100"}`}
+                className={`btn px-5 py-2.5 ${lang === "mr" ? "bg-primary-500 text-white shadow-md hover:-translate-y-0.5" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}
                 onClick={() => handleLangClick("mr")}
               >
                 {i18n.t("language_marathi")}
@@ -167,25 +167,25 @@ export default function Settings() {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl p-6 border shadow-sm">
-            <h2 className="text-lg font-semibold text-slate-800">{i18n.t("appearance_clinical")}</h2>
+          <div className="card">
+            <h2 className="text-lg font-semibold text-slate-800 tracking-tight">{i18n.t("appearance_clinical")}</h2>
             <p className="text-sm text-slate-500 mt-1">Theme used across the app.</p>
 
-            <div className="mt-4 flex gap-3">
+            <div className="mt-5 flex flex-wrap gap-3">
               <button
-                className={`px-3 py-2 rounded-md ${theme === "clinical" ? "bg-sky-600 text-white" : "bg-slate-100"}`}
+                className={`btn px-5 py-2.5 ${theme === "clinical" ? "bg-primary-500 text-white shadow-md hover:-translate-y-0.5" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}
                 onClick={() => handleThemeClick("clinical")}
               >
                 {i18n.t("appearance_clinical")}
               </button>
               <button
-                className={`px-3 py-2 rounded-md ${theme === "dark" ? "bg-sky-600 text-white" : "bg-slate-100"}`}
+                className={`btn px-5 py-2.5 ${theme === "dark" ? "bg-primary-500 text-white shadow-md hover:-translate-y-0.5" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}
                 onClick={() => handleThemeClick("dark")}
               >
                 {i18n.t("appearance_dark")}
               </button>
               <button
-                className={`px-3 py-2 rounded-md ${theme === "contrast" ? "bg-sky-600 text-white" : "bg-slate-100"}`}
+                className={`btn px-5 py-2.5 ${theme === "contrast" ? "bg-primary-500 text-white shadow-md hover:-translate-y-0.5" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}
                 onClick={() => handleThemeClick("contrast")}
               >
                 {i18n.t("appearance_contrast")}
@@ -193,56 +193,60 @@ export default function Settings() {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl p-6 border shadow-sm">
-            <h2 className="text-lg font-semibold text-slate-800">Backend / API URLs</h2>
+          <div className="card">
+            <h2 className="text-lg font-semibold text-slate-800 tracking-tight">Backend / API URLs</h2>
             <p className="text-sm text-slate-500 mt-1">Set your backend endpoints for MRI and Behaviour model.</p>
 
-            <div className="mt-4 grid grid-cols-1 gap-3">
-              <label className="text-sm text-slate-600">MRI Model URL</label>
-              <input value={mriUrl} onChange={(e) => setMriUrl(e.target.value)} placeholder="http://127.0.0.1:8000" className="border rounded-md px-3 py-2 w-full" />
+            <div className="mt-5 grid grid-cols-1 gap-4">
+              <div>
+                <label className="text-xs font-semibold text-slate-600 block mb-1.5">MRI Model URL</label>
+                <input value={mriUrl} onChange={(e) => setMriUrl(e.target.value)} placeholder="http://127.0.0.1:8000" className="input-field" />
+              </div>
 
-              <label className="text-sm text-slate-600 mt-2">Behaviour Model URL</label>
-              <input value={behavUrl} onChange={(e) => setBehavUrl(e.target.value)} placeholder="http://127.0.0.1:8000" className="border rounded-md px-3 py-2 w-full" />
+              <div>
+                <label className="text-xs font-semibold text-slate-600 block mb-1.5">Behaviour Model URL</label>
+                <input value={behavUrl} onChange={(e) => setBehavUrl(e.target.value)} placeholder="http://127.0.0.1:8000" className="input-field" />
+              </div>
 
-              <div className="flex gap-3 mt-3">
-                <button onClick={runHealthChecks} className="px-4 py-2 bg-sky-600 text-white rounded-md">Run health checks</button>
-                <div className="flex items-center gap-4">
-                  <div className="text-sm">MRI: <span className="font-medium">{healthStatus.mri ?? "n/a"}</span></div>
-                  <div className="text-sm">Behaviour: <span className="font-medium">{healthStatus.behavi ?? "n/a"}</span></div>
+              <div className="flex flex-col sm:flex-row gap-4 sm:items-center mt-2">
+                <button onClick={runHealthChecks} className="btn bg-slate-800 text-white hover:bg-slate-900 px-5 py-2.5">Run health checks</button>
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 bg-slate-50 px-4 py-2.5 rounded-xl border border-slate-100 flex-1">
+                  <div className="text-sm text-slate-600">MRI: <span className="font-bold text-slate-800">{healthStatus.mri ?? "n/a"}</span></div>
+                  <div className="text-sm text-slate-600">Behaviour: <span className="font-bold text-slate-800">{healthStatus.behavi ?? "n/a"}</span></div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-xl p-6 border shadow-sm">
-            <h2 className="text-lg font-semibold text-slate-800">Voice Assistant</h2>
+          <div className="card">
+            <h2 className="text-lg font-semibold text-slate-800 tracking-tight">Voice Assistant</h2>
             <p className="text-sm text-slate-500 mt-1">Enable microphone-based input and voice commands for the assistant.</p>
 
-            <div className="mt-4 flex items-center gap-4">
-              <label className="inline-flex items-center gap-2">
-                <input type="checkbox" checked={voiceEnabled} onChange={(e) => handleVoiceToggle(e.target.checked)} />
-                <span className="text-sm">{i18n.t("enable_voice")}</span>
+            <div className="mt-5 flex flex-col sm:flex-row sm:items-center gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100">
+              <label className="inline-flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" checked={voiceEnabled} onChange={(e) => handleVoiceToggle(e.target.checked)} className="w-5 h-5 rounded text-primary-500 focus:ring-primary-500 border-slate-300 cursor-pointer" />
+                <span className="text-sm font-medium text-slate-800">{i18n.t("enable_voice")}</span>
               </label>
 
-              <div className="text-sm text-slate-500">Note: Browser permission required. You can configure recognition language above in Language.</div>
+              <div className="text-xs text-slate-500 sm:ml-auto">Note: Browser permission required.</div>
             </div>
           </div>
 
-          <div className="bg-white rounded-xl p-6 border shadow-sm">
-            <h2 className="text-lg font-semibold text-slate-800">Data & Export</h2>
+          <div className="card border-rose-100">
+            <h2 className="text-lg font-semibold text-slate-800 tracking-tight">Data & Export</h2>
             <p className="text-sm text-slate-500 mt-1">Export or clear patient data. Use with caution.</p>
 
-            <div className="mt-4 flex gap-3">
-              <button onClick={exportPatients} className="px-4 py-2 bg-emerald-600 text-white rounded-md">{i18n.t("export_patients")}</button>
-              <button onClick={clearAllPatients} className="px-4 py-2 bg-rose-50 text-rose-600 border rounded-md">{i18n.t("clear_patients")}</button>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <button onClick={exportPatients} className="btn bg-emerald-100 text-emerald-800 hover:bg-emerald-200 px-5 py-2.5">{i18n.t("export_patients")}</button>
+              <button onClick={clearAllPatients} className="btn bg-rose-50 text-rose-600 hover:bg-rose-100 border border-rose-200 px-5 py-2.5">{i18n.t("clear_patients")}</button>
             </div>
           </div>
 
-          <div className="flex items-center justify-between">
-            <div className="text-sm text-slate-500">{statusMessage}</div>
-            <div className="flex items-center gap-3">
-              <button onClick={saveAll} className="px-4 py-2 bg-sky-600 text-white rounded-md">{i18n.t("save")}</button>
-              <button onClick={revert} className="px-4 py-2 rounded-md border">{i18n.t("revert")}</button>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
+            <div className="text-sm font-medium text-emerald-600">{statusMessage}</div>
+            <div className="flex items-center gap-3 w-full sm:w-auto">
+              <button onClick={saveAll} className="btn-primary w-full sm:w-auto">{i18n.t("save")}</button>
+              <button onClick={revert} className="btn-ghost w-full sm:w-auto">{i18n.t("revert")}</button>
             </div>
           </div>
 

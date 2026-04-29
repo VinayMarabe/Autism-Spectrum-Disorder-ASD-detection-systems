@@ -220,22 +220,22 @@ const Detection = () => {
     result?.prob_asd != null ? (result.prob_asd * 100).toFixed(1) : null;
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-gradient-to-b from-sky-50 via-white to-emerald-50">
-      <div className="max-w-7xl mx-auto px-6 py-8">
+    <div className="animate-fade-in pb-12">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-8">
         {/* 🔒 Sticky step indicator */}
-        <div className="sticky top-4 z-20 mb-4">
-          <div className="flex items-center gap-4 text-xs text-slate-500 bg-gradient-to-r from-sky-50 via-white to-emerald-50/95 backdrop-blur rounded-2xl px-4 py-2 border border-slate-100 shadow-sm">
+        <div className="sticky top-4 z-20 mb-8">
+          <div className="glass-panel mx-auto max-w-fit px-5 py-2.5 flex items-center gap-4 text-xs font-semibold text-slate-500">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-full bg-sky-500 text-white flex items-center justify-center text-[11px] font-semibold">
+              <div className="w-6 h-6 rounded-full bg-primary-500 text-white flex items-center justify-center text-[11px] font-bold shadow-md shadow-primary-500/30">
                 1
               </div>
-              <span className="font-medium">
+              <span className="text-slate-800">
                 Upload MRI &amp; notes
               </span>
             </div>
-            <div className="h-px flex-1 bg-slate-200" />
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center text-[11px] font-semibold">
+            <div className="h-px w-8 bg-slate-200" />
+            <div className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity">
+              <div className="w-6 h-6 rounded-full bg-slate-100 border border-slate-200 text-slate-500 flex items-center justify-center text-[11px] font-bold">
                 2
               </div>
               <span>Run screening &amp; view report</span>
@@ -243,35 +243,28 @@ const Detection = () => {
           </div>
         </div>
 
-        <div className="flex items-start justify-between">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-bold text-slate-900">
+            <h1 className="text-3xl font-bold text-slate-900 tracking-tight">
               {i18n.t("detection_title") || "Detection Lab"}
             </h1>
-            <p className="text-xs text-slate-600">
+            <p className="text-sm text-slate-500 mt-1">
               {i18n.t("detection_subtitle") ||
                 "Run MRI-based screening for the active patient. Results will be saved to patient history."}
             </p>
           </div>
 
-          <div className="text-right">
-            <p className="text-sm text-slate-700">
-              {i18n.t("active_patient_label") || "Active patient:"}
-              <span className="ml-2 font-semibold">
-                {activePatient
-                  ? `${activePatient.name} • ${
-                      activePatient.age ?? "—"
-                    }`
-                  : "—"}
-              </span>
-            </p>
-
+          <div className="md:text-right flex-1 md:flex-none">
+            <div className="text-[10px] uppercase tracking-widest text-slate-400 font-semibold mb-0.5">
+              {i18n.t("active_patient_label") || "Active patient"}
+            </div>
+            
             <div className="mt-1">
-              {patients && patients.length > 0 && (
+              {patients && patients.length > 0 ? (
                 <select
                   value={activePatient?.id || ""}
                   onChange={(e) => selectActivePatient(e.target.value)}
-                  className="px-3 py-1 rounded-xl border text-sm mt-2"
+                  className="input-field py-2 text-sm font-semibold text-slate-800"
                 >
                   <option value="" disabled>
                     {i18n.t("select_patient") || "Select patient"}
@@ -282,22 +275,24 @@ const Detection = () => {
                     </option>
                   ))}
                 </select>
+              ) : (
+                <div className="text-sm font-semibold text-slate-800">—</div>
               )}
             </div>
           </div>
         </div>
 
-        <div className="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
           {/* LEFT: FORM */}
           <form
             onSubmit={handleSubmit}
-            className="lg:col-span-2 bg-white rounded-3xl shadow-md border border-slate-100 p-6 space-y-4"
+            className="lg:col-span-2 card space-y-6"
           >
             <div>
-              <label className="text-sm font-medium text-slate-700">
+              <label className="text-xs font-semibold text-slate-600 uppercase tracking-wide">
                 {i18n.t("upload_label") || "Upload MRI image (NIfTI)"}
               </label>
-              <div className="mt-2">
+              <div className="mt-2 p-4 border-2 border-dashed border-slate-200 rounded-xl bg-slate-50 hover:bg-slate-100/50 transition-colors">
                 <input
                   key={fileInputKey}
                   type="file"
@@ -305,16 +300,17 @@ const Detection = () => {
                   onChange={(e) =>
                     setFile(e.target.files[0] || null)
                   }
+                  className="text-sm text-slate-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100 cursor-pointer"
                 />
               </div>
-              <p className="text-xs text-slate-400 mt-1">
+              <p className="text-[11px] font-medium text-slate-400 mt-2">
                 {i18n.t("accepted_text") ||
                   "Accepted: .nii, .nii.gz. Prefer preprocessed NIfTI; upload is sent to model as-is."}
               </p>
             </div>
 
             <div>
-              <label className="text-sm font-medium text-slate-700">
+              <label className="text-xs font-semibold text-slate-600 uppercase tracking-wide">
                 {i18n.t("behaviour_notes_label") ||
                   "Behaviour notes (optional)"}
               </label>
@@ -325,16 +321,16 @@ const Detection = () => {
                   i18n.t("placeholder_behaviour") ||
                   "Describe social, communication or sensory concerns — will be saved to patient notes and sent with the MRI."
                 }
-                className="w-full mt-2 min-h-[100px] rounded-lg border p-3 text-sm"
+                className="input-field mt-2 min-h-[100px] resize-y"
               />
             </div>
 
             <div>
-              <label className="text-sm font-medium text-slate-700">
+              <label className="text-xs font-semibold text-slate-600 uppercase tracking-wide">
                 {i18n.t("supporting_pdf_label") ||
                   "Upload supporting PDF (optional)"}
               </label>
-              <div className="mt-2">
+              <div className="mt-2 p-3 border-2 border-dashed border-slate-200 rounded-xl bg-slate-50 hover:bg-slate-100/50 transition-colors">
                 <input
                   key={pdfInputKey}
                   type="file"
@@ -342,25 +338,26 @@ const Detection = () => {
                   onChange={(e) =>
                     setPdfFile(e.target.files[0] || null)
                   }
+                  className="text-sm text-slate-600 file:mr-4 file:py-1.5 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-slate-200 file:text-slate-700 hover:file:bg-slate-300 cursor-pointer"
                 />
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-[11px] font-medium text-slate-400 mt-2">
                   {i18n.t("optional_support_text") ||
                     "Optional supporting documents (PDF)"}
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-3">
+            <div className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-100">
               <input
                 id="consent"
                 type="checkbox"
                 checked={consent}
                 onChange={(e) => setConsent(e.target.checked)}
-                className="w-4 h-4"
+                className="w-4 h-4 mt-0.5 rounded text-primary-500 focus:ring-primary-500 border-slate-300 cursor-pointer"
               />
               <label
                 htmlFor="consent"
-                className="text-sm text-slate-700"
+                className="text-sm font-medium text-slate-700 cursor-pointer"
               >
                 {i18n.t("consent_text") ||
                   "I confirm I have permission to upload this MRI and consent to processing."}
@@ -368,19 +365,19 @@ const Detection = () => {
             </div>
 
             {error && (
-              <div className="text-sm text-rose-700 bg-rose-50 border border-rose-100 p-3 rounded-lg">
+              <div className="text-sm font-medium text-rose-700 bg-rose-50 border border-rose-200 p-4 rounded-xl">
                 {error}
               </div>
             )}
 
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-slate-100">
               <button
                 type="submit"
                 disabled={loading}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl text-sm font-semibold text-white bg-gradient-to-r from-sky-500 to-emerald-500 shadow-sm disabled:opacity-60"
+                className="btn-primary"
               >
                 {loading && (
-                  <span className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />
                 )}
                 {i18n.t("run_button") || "Run MRI screening"}
               </button>
@@ -388,14 +385,14 @@ const Detection = () => {
               <button
                 type="button"
                 onClick={handleReset}
-                className="inline-flex items-center px-4 py-2 rounded-2xl bg-white border border-slate-200 text-sm font-semibold hover:bg-slate-50"
+                className="btn-ghost"
               >
                 {i18n.t("reset_button") || "Reset"}
               </button>
             </div>
 
             {/* Status chips */}
-            <div className="mt-3 flex flex-wrap gap-2 text-[11px]">
+            <div className="mt-4 flex flex-wrap gap-2 text-[10px] uppercase tracking-wider font-bold">
               <span
                 className={`px-2.5 py-1 rounded-full border ${
                   hasFile
@@ -427,62 +424,64 @@ const Detection = () => {
           </form>
 
           {/* RIGHT: RESULT / EXPLANATION */}
-          <aside className="bg-white rounded-2xl p-6 border shadow-sm">
-            <div className="text-xs text-slate-500">
-              {i18n.t("interpretation_summary") ||
-                "Interpretation summary"}
+          <aside className="card space-y-6">
+            <div>
+              <div className="text-[10px] uppercase tracking-widest text-slate-400 font-semibold mb-1">
+                {i18n.t("interpretation_summary") ||
+                  "Interpretation summary"}
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 tracking-tight">
+                {i18n.t("model_explanation_title") ||
+                  "Model explanation & report"}
+              </h3>
             </div>
-            <h3 className="text-lg font-semibold text-slate-900 mt-2">
-              {i18n.t("model_explanation_title") ||
-                "Model explanation & report"}
-            </h3>
 
             {!result ? (
-              <div className="mt-4 rounded-2xl border border-dashed border-slate-200 bg-slate-50/60 p-4 flex gap-3">
-                <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center border border-slate-200">
-                  <FileText size={16} className="text-slate-400" />
+              <div className="mt-6 rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50/50 p-6 flex flex-col items-center text-center gap-3 transition-colors hover:bg-slate-50 hover:border-slate-300">
+                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center border border-slate-200 shadow-sm mb-2">
+                  <FileText size={20} className="text-slate-400" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-800">
-                    No screening run yet.
+                  <p className="text-sm font-bold text-slate-800">
+                    No screening run yet
                   </p>
-                  <p className="text-xs text-slate-500 mt-1">
+                  <p className="text-xs font-medium text-slate-500 mt-2 max-w-[250px] mx-auto leading-relaxed">
                     Upload an MRI for the active patient and click{" "}
-                    <span className="font-semibold">
+                    <span className="font-bold text-slate-700">
                       Run MRI screening
                     </span>{" "}
-                    to generate a PDF report and plain-language
-                    explanation.
+                    to generate a PDF report and explanation.
                   </p>
                 </div>
               </div>
             ) : (
-              <div className="mt-4 space-y-4">
+              <div className="mt-6 space-y-5">
                 {/* Summary + severity */}
-                <div className="rounded-xl bg-slate-50 p-3">
-                  <div className="text-xs text-slate-500 mb-2">
+                <div className="rounded-xl bg-slate-50 p-4 border border-slate-100">
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">
                     Screening summary
                   </div>
-                  <div className="flex items-start gap-3">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                     <div className="flex-1">
-                      <div className="text-xs text-slate-500">
+                      <div className="text-xs font-semibold text-slate-500">
                         {i18n.t("predicted_class_label") ||
                           "Predicted class"}
                       </div>
-                      <div className="font-semibold text-slate-900">
+                      <div className="text-lg font-extrabold text-slate-900 tracking-tight mt-0.5">
                         {result.predicted_class || "—"}
                       </div>
-                      <div className="text-[11px] text-slate-500 mt-2">
+                      <div className="text-[11px] font-medium text-slate-500 mt-2 bg-white px-2 py-1 rounded inline-block border shadow-sm">
                         {i18n.t("asd_probability_label") ||
                           "ASD probability"}
-                        :{" "}
+                        : <span className="font-bold text-slate-800">
                         {panelProbPercent != null
                           ? `${panelProbPercent}%`
                           : "N/A"}
+                        </span>
                       </div>
                     </div>
 
-                    <div className="w-40">
+                    <div className="w-full sm:w-40 pt-2 sm:pt-0">
                       <SeverityMeter
                         severity={panelSeverity}
                         probability={result.prob_asd}
@@ -492,36 +491,36 @@ const Detection = () => {
                 </div>
 
                 {/* Explanation text */}
-                <div className="rounded-xl bg-slate-50 p-3 text-sm text-slate-700">
+                <div className="rounded-xl bg-primary-50/50 p-4 text-sm font-medium text-slate-700 border border-primary-100/50 leading-relaxed shadow-inner">
                   {result.explanation}
                 </div>
 
                 {/* Report + heatmap buttons */}
-                <div className="flex flex-wrap gap-2 mt-2">
+                <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-slate-100">
+                  <button
+                    type="button"
+                    onClick={goToHeatmapJourney}
+                    className="btn bg-slate-900 text-white hover:bg-slate-800 shadow-md w-full py-3"
+                  >
+                    View walkthrough and report
+                  </button>
+
                   {result.report_path && (
-                    <>
+                    <div className="flex gap-3">
                       <button
                         onClick={openReport}
-                        className="px-3 py-2 rounded-2xl bg-slate-900 text-white text-sm"
+                        className="btn-ghost flex-1 py-2.5 text-xs font-semibold"
                       >
                         {i18n.t("open_report") || "Open report"}
                       </button>
                       <button
                         onClick={downloadPdf}
-                        className="px-3 py-2 rounded-2xl bg-white border text-sm"
+                        className="btn-ghost flex-1 py-2.5 text-xs font-semibold"
                       >
                         {i18n.t("download_pdf") || "Download PDF"}
                       </button>
-                    </>
+                    </div>
                   )}
-
-                  <button
-                    type="button"
-                    onClick={goToHeatmapJourney}
-                    className="px-3 py-2 rounded-2xl bg-sky-50 border border-sky-200 text-sky-800 text-sm font-medium"
-                  >
-                    View walkthrough and report
-                  </button>
                 </div>
               </div>
             )}

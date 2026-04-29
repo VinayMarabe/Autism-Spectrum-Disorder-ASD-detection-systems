@@ -277,8 +277,8 @@ export default function Dashboard() {
   const active = storageActive; // keep same behaviour as before
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-gradient-to-b from-sky-50 via-white to-emerald-50">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 py-8">
+    <div className="animate-fade-in pb-12">
+      <div className="w-full">
         {/* Header row */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="flex-1 text-left md:text-center">
@@ -303,17 +303,19 @@ export default function Dashboard() {
           {/* Backend + device + refresh */}
           <div className="flex items-center gap-3">
             <div className="flex gap-3 items-center">
-              <div className="bg-white rounded-xl px-3 py-2 border shadow-sm flex items-center gap-3 min-h-[56px]">
-                <Server size={18} className="text-slate-400" />
+              <div className="glass-panel px-4 py-3 flex items-center gap-4 min-h-[56px]">
+                <div className="p-2 bg-slate-100/50 rounded-lg">
+                  <Server size={18} className="text-slate-500" />
+                </div>
                 <div className="text-left">
-                  <div className="text-xs text-slate-500">
+                  <div className="text-[10px] uppercase tracking-wider text-slate-500 font-semibold mb-0.5">
                     {i18n.t("backend")}
                   </div>
                   <div
-                    className={`text-sm font-semibold ${
+                    className={`text-sm font-bold ${
                       health.status === "ok"
-                        ? "text-emerald-600"
-                        : "text-rose-600"
+                        ? "text-emerald-500"
+                        : "text-rose-500"
                     }`}
                   >
                     {health.status === "ok"
@@ -323,13 +325,15 @@ export default function Dashboard() {
                 </div>
               </div>
 
-              <div className="bg-white rounded-xl px-3 py-2 border shadow-sm flex items-center gap-3 min-h-[56px]">
-                <Cpu size={18} className="text-slate-400" />
+              <div className="glass-panel px-4 py-3 flex items-center gap-4 min-h-[56px]">
+                <div className="p-2 bg-slate-100/50 rounded-lg">
+                  <Cpu size={18} className="text-slate-500" />
+                </div>
                 <div className="text-left">
-                  <div className="text-xs text-slate-500">
+                  <div className="text-[10px] uppercase tracking-wider text-slate-500 font-semibold mb-0.5">
                     {i18n.t("device")}
                   </div>
-                  <div className="text-sm font-medium text-slate-800">
+                  <div className="text-sm font-bold text-slate-800">
                     {health.device || "—"}
                   </div>
                 </div>
@@ -338,10 +342,10 @@ export default function Dashboard() {
               <button
                 onClick={() => window.location.reload()}
                 aria-label="Reload dashboard"
-                className="bg-white rounded-xl px-3 py-2 border shadow-sm flex items-center gap-2 min-h-[56px]"
+                className="btn glass-panel px-4 py-3 flex items-center gap-2 min-h-[56px] hover:bg-white hover:shadow-md hover:-translate-y-0.5"
               >
-                <RefreshCw size={16} className="text-slate-400" />
-                <span className="text-sm text-slate-700">
+                <RefreshCw size={16} className="text-slate-500" />
+                <span className="text-sm font-semibold text-slate-700">
                   {i18n.t("refresh")}
                 </span>
               </button>
@@ -352,103 +356,118 @@ export default function Dashboard() {
         {/* Cards row */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-4 gap-6">
           {/* Analytics card */}
-          <div className="bg-white rounded-2xl p-6 border shadow-sm flex flex-col justify-between">
+          <div className="card flex flex-col justify-between">
             <div className="flex items-start gap-3">
-              <BarChart2 size={18} className="text-slate-500 mt-1" />
+              <div className="p-2 bg-primary-50 rounded-lg">
+                <BarChart2 size={18} className="text-primary-600" />
+              </div>
               <div>
-                <div className="text-xs text-slate-500">
+                <div className="text-[11px] uppercase tracking-wider text-slate-500 font-semibold mb-0.5">
                   {i18n.t("analytics")}
                 </div>
-                <div className="text-lg font-semibold text-slate-800">
+                <div className="text-lg font-bold text-slate-800 tracking-tight">
                   {i18n.t("analytics")}
                 </div>
               </div>
             </div>
 
-            <div className="mt-4 flex items-center gap-6">
-              <div className="flex-shrink-0">
+            <div className="mt-6 flex items-center gap-6">
+              <div className="flex-shrink-0 drop-shadow-sm">
                 <Donut percent={health.accuracy != null ? Math.round(health.accuracy * 100) : 0} />
               </div>
 
               <div className="flex-1">
-                <div className="text-2xl font-bold text-slate-800">
+                <div className="text-3xl font-extrabold text-slate-800 tracking-tighter">
                   {health.accuracy != null ? `${Math.round(health.accuracy * 100)}%` : "N/A"}
                 </div>
-                <div className="text-xs text-slate-500 mt-1">
+                <div className="text-[11px] uppercase tracking-wider text-slate-500 font-semibold mt-1">
                   Model Accuracy
                 </div>
-                <div className="mt-3 text-xs text-slate-500">
-                  Screenings: {analytics.total} ({analytics.asdCount} ASD)
+                <div className="mt-3 text-xs font-medium text-slate-600 bg-slate-50 px-3 py-1.5 rounded-lg inline-block">
+                  Screenings: <span className="font-bold">{analytics.total}</span> ({analytics.asdCount} ASD)
                 </div>
               </div>
             </div>
           </div>
 
           {/* Quick actions */}
-          <div className="md:col-span-2 bg-white rounded-2xl p-6 border shadow-sm">
+          <div className="md:col-span-2 card">
             <div className="flex items-center gap-3">
-              <UserPlus size={18} className="text-slate-500" />
+              <div className="p-2 bg-primary-50 rounded-lg">
+                <UserPlus size={18} className="text-primary-600" />
+              </div>
               <div>
-                <div className="text-xs text-slate-500">
+                <div className="text-[11px] uppercase tracking-wider text-slate-500 font-semibold mb-0.5">
                   {i18n.t("quick_actions")}
                 </div>
-                <div className="text-sm font-semibold text-slate-800">
+                <div className="text-lg font-bold text-slate-800 tracking-tight">
                   {i18n.t("start_screening")}
                 </div>
               </div>
             </div>
 
-            <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
               <button
                 onClick={() => navigate("/patient-form")}
-                className="py-2.5 px-4 rounded-xl bg-slate-50 border text-left w-full hover:bg-slate-100 transition"
+                className="btn bg-white border border-slate-200 text-slate-700 hover:border-primary-300 hover:bg-primary-50 hover:text-primary-700 hover:-translate-y-1 shadow-sm px-4 py-4 h-auto text-left flex flex-col items-start gap-2"
                 aria-label="Open patient form"
               >
-                {i18n.t("patient_form_short")}
+                <div className="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mb-1">
+                  <UserPlus size={16} />
+                </div>
+                <span className="font-semibold">{i18n.t("patient_form_short")}</span>
               </button>
 
               <button
                 onClick={() => navigate("/patients")}
-                className="py-2.5 px-4 rounded-xl bg-slate-50 border text-left w-full hover:bg-slate-100 transition"
+                className="btn bg-white border border-slate-200 text-slate-700 hover:border-primary-300 hover:bg-primary-50 hover:text-primary-700 hover:-translate-y-1 shadow-sm px-4 py-4 h-auto text-left flex flex-col items-start gap-2"
                 aria-label="Open patients list"
               >
-                {i18n.t("patients_short")}
+                <div className="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mb-1">
+                  <BarChart2 size={16} />
+                </div>
+                <span className="font-semibold">{i18n.t("patients_short")}</span>
               </button>
 
               <button
                 onClick={() => navigate("/detection")}
-                className="py-2.5 px-4 rounded-xl w-full bg-gradient-to-r from-sky-500 to-emerald-500 text-white font-semibold shadow-sm"
+                className="btn bg-gradient-to-br from-primary-500 to-primary-600 text-white font-semibold shadow-md shadow-primary-500/20 hover:shadow-lg hover:-translate-y-1 hover:from-primary-400 hover:to-primary-500 px-4 py-4 h-auto text-left flex flex-col items-start gap-2"
                 aria-label="Go to detection lab"
               >
-                {i18n.t("detection_short")}
+                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white mb-1">
+                  <Activity size={16} />
+                </div>
+                <span className="font-semibold">{i18n.t("detection_short")}</span>
               </button>
             </div>
           </div>
 
           {/* System card */}
-          <div className="bg-white rounded-2xl p-6 border shadow-sm">
+          <div className="card">
             <div className="flex items-center gap-3">
-              <Server size={18} className="text-slate-500" />
+              <div className="p-2 bg-primary-50 rounded-lg">
+                <Server size={18} className="text-primary-600" />
+              </div>
               <div>
-                <div className="text-xs text-slate-500">
+                <div className="text-[11px] uppercase tracking-wider text-slate-500 font-semibold mb-0.5">
                   {i18n.t("system")}
                 </div>
-                <div className="text-sm font-semibold text-slate-800">
+                <div className="text-lg font-bold text-slate-800 tracking-tight">
                   {i18n.t("runtime_health")}
                 </div>
               </div>
             </div>
 
-            <div className="mt-4 space-y-3">
-              <div className="flex items-center justify-between">
-                <div className="text-xs text-slate-500">
+            <div className="mt-6 space-y-4">
+              <div className="flex items-center justify-between p-3 bg-slate-50 rounded-xl">
+                <div className="text-xs font-semibold text-slate-600">
                   {i18n.t("status_label")}
                 </div>
                 <div
-                  className={`px-2 py-1 rounded-full text-xs font-medium ${
+                  className={`px-3 py-1 rounded-full text-xs font-bold ${
                     health.status === "ok"
-                      ? "bg-emerald-50 text-emerald-600"
-                      : "bg-rose-50 text-rose-600"
+                      ? "bg-emerald-100 text-emerald-700"
+                      : "bg-rose-100 text-rose-700"
                   }`}
                 >
                   {health.status === "ok"
@@ -457,35 +476,40 @@ export default function Dashboard() {
                 </div>
               </div>
 
-              <div>
-                <div className="text-xs text-slate-500 mb-2">
+              <div className="p-3 bg-slate-50 rounded-xl">
+                <div className="text-xs font-semibold text-slate-600 mb-3">
                   {i18n.t("demo_severity")}
                 </div>
-                <div className="flex flex-col gap-2">
-                  <div className="text-xs text-slate-500 uppercase tracking-wide">
-                    SEVERITY
+                <div className="flex flex-col gap-3">
+                  <div className="text-[10px] text-slate-400 uppercase tracking-widest font-bold">
+                    SEVERITY PREDICTION
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="flex-1">
-                      <SeverityMeter
-                        severity={latestSeverityLabel}
-                        probability={latestProb}
-                      />
+                    <div className="flex-1 h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                      {/* Replacing simple SeverityMeter block with a nicer container around it */}
+                      <div className="h-full w-full relative">
+                        <SeverityMeter
+                          severity={latestSeverityLabel}
+                          probability={latestProb}
+                        />
+                      </div>
                     </div>
-                    <div className="text-xs text-slate-600 whitespace-nowrap rounded-full px-3 py-1 bg-slate-100">
+                    <div className="text-[11px] font-bold text-slate-700 whitespace-nowrap rounded-lg px-2.5 py-1 bg-white border shadow-sm">
                       {latestSeverityLabel}
                     </div>
                   </div>
-                  <div className="text-xs text-slate-500 mt-1">
+                  <div className="text-xs font-medium text-slate-500 mt-1">
                     Confidence:{" "}
-                    {latestProb != null
-                      ? `${(latestProb * 100).toFixed(1)}%`
-                      : "N/A"}
+                    <span className="font-bold text-slate-700">
+                      {latestProb != null
+                        ? `${(latestProb * 100).toFixed(1)}%`
+                        : "N/A"}
+                    </span>
                   </div>
                 </div>
               </div>
 
-              <div className="text-xs text-slate-500">
+              <div className="text-[11px] font-medium text-slate-400 text-center pt-2 border-t border-slate-100">
                 {i18n.t("last_checked") || "Last checked"}:{" "}
                 {lastChecked
                   ? new Date(lastChecked).toLocaleString()
@@ -496,52 +520,56 @@ export default function Dashboard() {
         </div>
 
         {/* Recent history */}
-        <div className="mt-8 bg-white rounded-2xl p-6 border shadow-sm">
-          <div className="flex items-center gap-3">
-            <Activity size={18} className="text-slate-500" />
+        <div className="mt-8 card">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-2 bg-primary-50 rounded-lg">
+              <Activity size={18} className="text-primary-600" />
+            </div>
             <div>
-              <div className="text-sm font-semibold text-slate-800">
-                {i18n.t("recent_history")}
-              </div>
-              <div className="text-xs text-slate-500">
+              <div className="text-[11px] uppercase tracking-wider text-slate-500 font-semibold mb-0.5">
                 {i18n.t("latest_screenings")}
+              </div>
+              <div className="text-lg font-bold text-slate-800 tracking-tight">
+                {i18n.t("recent_history")}
               </div>
             </div>
           </div>
 
-          <div className="mt-4 space-y-3">
+          <div className="space-y-3">
             {screenings.length === 0 ? (
-              <div className="text-sm text-slate-600">
+              <div className="text-sm text-slate-500 font-medium py-8 text-center bg-slate-50 rounded-xl border border-dashed border-slate-200">
                 {i18n.t("no_recent_screenings")}
               </div>
             ) : (
               screenings.slice(0, 8).map((h) => (
                 <div
                   key={h.id}
-                  className="flex items-center justify-between py-3 border-b last:border-b-0"
+                  className="flex flex-col md:flex-row items-start md:items-center justify-between p-4 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100"
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center text-slate-600 font-medium">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-primary-50 rounded-full flex items-center justify-center text-primary-600 font-bold text-lg shadow-sm">
                       {h.patientName
                         ? h.patientName[0].toUpperCase()
                         : "?"}
                     </div>
                     <div>
-                      <div className="text-sm font-medium text-slate-800">
+                      <div className="text-base font-bold text-slate-800">
                         {h.patientName || i18n.t("unknown_patient")}
                       </div>
-                      <div className="text-xs text-slate-500">
+                      <div className="text-[11px] font-medium uppercase tracking-wider text-slate-500 mt-0.5">
                         {i18n.t("age_label_short") || "Age:"}{" "}
-                        {h.age ?? "—"} • {i18n.t("subject_label")}:{" "}
-                        {h.subjectId || "-"}
+                        <span className="text-slate-700">{h.age ?? "—"}</span> • {i18n.t("subject_label")}:{" "}
+                        <span className="text-slate-700">{h.subjectId || "-"}</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4">
-                    <div className="text-xs text-slate-500 text-right">
-                      <div>{i18n.t("last_seen")}</div>
-                      <div className="font-medium text-slate-800">
+                  <div className="flex items-center gap-6 mt-4 md:mt-0 w-full md:w-auto">
+                    <div className="text-right flex-1 md:flex-none">
+                      <div className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">
+                        {i18n.t("last_seen")}
+                      </div>
+                      <div className="font-bold text-slate-700 text-sm">
                         {timeAgo(h.createdAt)
                           ? `${timeAgo(h.createdAt)} ${
                               i18n.t("ago") || "ago"
@@ -550,7 +578,7 @@ export default function Dashboard() {
                       </div>
                     </div>
 
-                    <div className="w-28">
+                    <div className="w-32 bg-slate-50 p-2 rounded-lg border border-slate-100 h-10 flex items-center justify-center">
                       <Sparkline
                         values={
                           h.prob_asd != null ? [h.prob_asd] : []

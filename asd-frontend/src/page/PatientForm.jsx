@@ -284,8 +284,8 @@ export default function PatientForm() {
   const totalPatients = (patientsFromCtx || getPatients() || []).length;
 
   return (
-    <div className="min-h-[calc(100vh-64px)]">
-      <div className="max-w-5xl mx-auto px-4 py-8">
+    <div className="animate-fade-in pb-12">
+      <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="flex items-start justify-between mb-6">
           <div>
             <h1 className="text-3xl font-bold text-slate-900">
@@ -309,7 +309,7 @@ export default function PatientForm() {
         </div>
 
         <form
-          className="bg-white rounded-2xl p-6 border shadow-sm"
+          className="card mt-2"
           onSubmit={handleSave}
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
@@ -323,7 +323,7 @@ export default function PatientForm() {
                 placeholder={
                   i18n.t("placeholder_full_name") || "Full name"
                 }
-                className="mt-2 w-full rounded-xl border px-4 py-3 text-sm"
+                className="input-field mt-2"
               />
             </div>
 
@@ -335,7 +335,7 @@ export default function PatientForm() {
                 value={form.age ?? ""}
                 onChange={(e) => setField("age", e.target.value)}
                 placeholder={i18n.t("placeholder_age") || "yrs"}
-                className="mt-2 w-full rounded-xl border px-4 py-3 text-sm"
+                className="input-field mt-2"
               />
             </div>
           </div>
@@ -352,7 +352,7 @@ export default function PatientForm() {
                 i18n.t("placeholder_behaviour") ||
                 "Describe social, communication, sensory or learning concerns"
               }
-              className="mt-2 w-full rounded-xl border px-4 py-3 text-sm min-h-[120px] resize-vertical"
+              className="input-field mt-2 min-h-[120px] resize-y"
             />
           </div>
 
@@ -364,7 +364,7 @@ export default function PatientForm() {
               <select
                 value={form.gender}
                 onChange={(e) => setField("gender", e.target.value)}
-                className="mt-2 w-full rounded-xl border px-4 py-3 text-sm"
+                className="input-field mt-2"
               >
                 <option value="Male">
                   {i18n.t("gender_male") || "Male"}
@@ -381,13 +381,13 @@ export default function PatientForm() {
               </select>
             </div>
 
-            <div className="mt-4 md:mt-0 flex items-center gap-3">
+            <div className="mt-6 md:mt-0 flex flex-wrap items-center gap-3">
               {/* Save */}
               <button
                 type="button"
                 onClick={handleSave}
                 disabled={saving}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl text-sm font-semibold text-white bg-gradient-to-r from-sky-500 to-emerald-500 shadow-sm disabled:opacity-60"
+                className="btn-primary"
               >
                 {i18n.t("btn_save") || "Save"}
               </button>
@@ -398,7 +398,7 @@ export default function PatientForm() {
                   type="button"
                   onClick={handleSaveAndStart}
                   disabled={saving}
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl text-sm font-semibold bg-slate-900 text-white disabled:opacity-60"
+                  className="btn bg-slate-800 text-white hover:bg-slate-900 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 px-5 py-2.5"
                 >
                   Start detection
                 </button>
@@ -407,7 +407,7 @@ export default function PatientForm() {
               <button
                 type="button"
                 onClick={handleReset}
-                className="inline-flex items-center gap-2 px-4 py-3 rounded-2xl text-sm font-medium bg-white border"
+                className="btn-ghost"
               >
                 {i18n.t("btn_reset") || "Reset"}
               </button>

@@ -124,45 +124,52 @@ const ConvoWithDoctor = () => {
     : i18n.t("select_patient") || "Select patient";
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-gradient-to-b from-sky-50 via-white to-emerald-50">
-      <div className="max-w-7xl mx-auto px-6 py-6">
-        <div className="flex items-center justify-between mb-4">
+    <div className="animate-fade-in pb-12">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-8">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
           <button
             onClick={() => navigate(-1)}
-            className="inline-flex items-center gap-2 text-xs text-slate-600 hover:text-slate-900"
+            className="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 hover:text-slate-800 transition-colors bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm"
           >
             <ArrowLeft size={14} />
             <span>Back</span>
           </button>
 
           {uiPatient && (
-            <div className="text-xs text-slate-600">
+            <div className="text-xs font-semibold text-slate-500 bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm">
               {i18n.t("active_patient_label") || "Active patient:"}{" "}
-              <span className="font-semibold">{patientLabel}</span>
+              <span className="font-bold text-slate-800">{patientLabel}</span>
             </div>
           )}
         </div>
 
-        <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-          <MessageCircle size={20} className="text-sky-500" />
-          <span>Convo with doctor</span>
-        </h1>
-        <p className="text-xs text-slate-600 mt-1 mb-4">
+        <div className="flex items-center gap-3 mb-2">
+          <div className="w-10 h-10 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center shadow-sm">
+            <MessageCircle size={20} />
+          </div>
+          <h1 className="text-3xl font-bold text-slate-900 tracking-tight">
+            Convo with doctor
+          </h1>
+        </div>
+        <p className="text-sm font-medium text-slate-500 mb-8 max-w-2xl leading-relaxed">
           The assistant uses retrieval-augmented answers with cited sources from
           MRI screenings, reports, and patient metadata.
         </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
           {/* Chat area */}
-          <div className="lg:col-span-2 bg-white rounded-2xl border shadow-sm flex flex-col min-h-[360px]">
-            <div className="flex-1 p-4 space-y-3 overflow-y-auto">
+          <div className="lg:col-span-2 card p-0 overflow-hidden flex flex-col min-h-[500px]">
+            <div className="flex-1 p-6 space-y-4 overflow-y-auto bg-slate-50/50">
               {historyLoading && (
-                <div className="text-[11px] text-slate-400">Loading history…</div>
+                <div className="flex justify-center p-4">
+                  <div className="text-[11px] uppercase tracking-widest font-bold text-slate-400 animate-pulse">Loading history…</div>
+                </div>
               )}
               {!historyLoading && messages.length === 0 && (
-                <div className="rounded-2xl bg-slate-50 border border-slate-100 px-3 py-3 text-xs text-slate-600">
-                  No chat history yet for this patient. Ask about the latest screening,
-                  MRI findings, severity bucket, or supporting evidence.
+                <div className="rounded-2xl bg-white border border-slate-100 p-6 text-sm text-slate-500 text-center shadow-sm max-w-md mx-auto mt-8">
+                  <MessageCircle size={24} className="mx-auto text-slate-300 mb-3" />
+                  <p className="font-medium text-slate-800 mb-1">No chat history yet</p>
+                  <p>Ask about the latest screening, MRI findings, severity bucket, or supporting evidence.</p>
                 </div>
               )}
               {messages.map((m, idx) => (
@@ -173,10 +180,10 @@ const ConvoWithDoctor = () => {
                   }`}
                 >
                   <div
-                    className={`max-w-[80%] rounded-2xl px-3 py-2 text-xs ${
+                    className={`max-w-[85%] rounded-2xl px-5 py-3 text-sm font-medium leading-relaxed shadow-sm ${
                       m.from === "user"
-                        ? "bg-sky-500 text-white rounded-br-sm"
-                        : "bg-slate-100 text-slate-800 rounded-bl-sm"
+                        ? "bg-primary-500 text-white rounded-br-sm"
+                        : "bg-white text-slate-700 border border-slate-100 rounded-bl-sm"
                     }`}
                   >
                     {m.text}
@@ -186,100 +193,112 @@ const ConvoWithDoctor = () => {
             </div>
 
             {error && (
-              <div className="text-[11px] text-rose-600 px-4">{error}</div>
+              <div className="text-xs font-semibold text-rose-600 bg-rose-50 px-4 py-3 border-y border-rose-100">{error}</div>
             )}
 
-            <div className="border-t border-slate-100 p-3 flex items-end gap-2">
-              <textarea
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={handleKeyDown}
-                rows={2}
-                disabled={!uiPatient?.id}
-                placeholder={
-                  uiPatient?.id
-                    ? "Type a question you’d like to discuss with the doctor…"
-                    : "Select or create a patient to start chatting"
-                }
-                className="flex-1 text-xs rounded-xl border border-slate-200 p-2 resize-none focus:outline-none focus:ring-1 focus:ring-sky-400 disabled:bg-slate-50"
-              />
-              <button
-                type="button"
-                onClick={handleSend}
-                className="inline-flex items-center justify-center px-3 py-2 rounded-xl bg-sky-500 text-white text-xs font-semibold disabled:opacity-60"
-                disabled={!uiPatient?.id || !input.trim() || loading}
-              >
-                {loading ? (
-                  <span className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                ) : (
-                  <Send size={14} className="mr-1" />
-                )}
-                Send
-              </button>
+            <div className="bg-white border-t border-slate-100 p-4">
+              <div className="flex items-end gap-3 max-w-full">
+                <textarea
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  rows={2}
+                  disabled={!uiPatient?.id}
+                  placeholder={
+                    uiPatient?.id
+                      ? "Type a question you’d like to discuss with the doctor…"
+                      : "Select or create a patient to start chatting"
+                  }
+                  className="input-field min-h-[44px] resize-none"
+                />
+                <button
+                  type="button"
+                  onClick={handleSend}
+                  className="btn-primary shrink-0 h-[44px] w-[44px] p-0 flex items-center justify-center rounded-xl"
+                  disabled={!uiPatient?.id || !input.trim() || loading}
+                >
+                  {loading ? (
+                    <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  ) : (
+                    <Send size={18} />
+                  )}
+                </button>
+              </div>
             </div>
           </div>
 
-          <aside className="bg-white rounded-2xl border shadow-sm p-4 text-xs text-slate-600 space-y-4">
+          <aside className="card space-y-6">
             <div>
-              <div className="font-semibold text-slate-900 mb-1">Patient insight</div>
+              <div className="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-2">Patient insight</div>
               {uiPatient ? (
-                <ul className="space-y-1">
-                  <li>{patientLabel}</li>
+                <ul className="space-y-1 text-sm font-medium">
+                  <li className="text-slate-800">{patientLabel}</li>
                   {uiPatient.notes && (
-                    <li className="text-slate-500 line-clamp-2">{uiPatient.notes}</li>
+                    <li className="text-slate-500 line-clamp-3 leading-relaxed mt-2 p-3 bg-slate-50 rounded-xl border border-slate-100">{uiPatient.notes}</li>
                   )}
                 </ul>
               ) : (
-                <p>Select a patient to load summaries.</p>
+                <p className="text-sm text-slate-500 font-medium">Select a patient to load summaries.</p>
               )}
             </div>
 
             {latestSnapshot && (
-              <div className="border-t border-dashed border-slate-200 pt-3">
-                <div className="font-semibold text-slate-900 mb-1">
+              <div className="border-t border-slate-100 pt-6">
+                <div className="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-3">
                   Latest screening snapshot
                 </div>
-                <p>
-                  Predicted class:{" "}
-                  <span className="font-semibold">
-                    {latestSnapshot.predicted_class || "—"}
-                  </span>
-                </p>
-                <p>
-                  ASD probability:{" "}
-                  {latestSnapshot.prob_asd != null
-                    ? `${(latestSnapshot.prob_asd * 100).toFixed(1)}%`
-                    : "N/A"}
-                </p>
-                <p>
-                  Severity bucket: {latestSnapshot.severity_bucket || "—"}
-                </p>
-                {latestSnapshot.created_at && (
-                  <p className="text-slate-400">
-                    Recorded: {new Date(latestSnapshot.created_at).toLocaleString()}
-                  </p>
-                )}
-                {latestSnapshot.metadata?.model && (
-                  <p>Model: {latestSnapshot.metadata.model}</p>
-                )}
+                <div className="space-y-3 text-sm font-medium text-slate-600">
+                  <div className="flex justify-between items-center p-2 rounded-lg hover:bg-slate-50">
+                    <span>Predicted class</span>
+                    <span className="font-bold text-slate-900 bg-white border border-slate-200 px-2 py-0.5 rounded shadow-sm">
+                      {latestSnapshot.predicted_class || "—"}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center p-2 rounded-lg hover:bg-slate-50">
+                    <span>ASD probability</span>
+                    <span className="font-bold text-slate-900">
+                      {latestSnapshot.prob_asd != null
+                        ? `${(latestSnapshot.prob_asd * 100).toFixed(1)}%`
+                        : "N/A"}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center p-2 rounded-lg hover:bg-slate-50">
+                    <span>Severity bucket</span>
+                    <span className="font-bold text-slate-900">
+                      {latestSnapshot.severity_bucket || "—"}
+                    </span>
+                  </div>
+                  
+                  <div className="pt-2 px-2 text-xs text-slate-400">
+                    {latestSnapshot.created_at && (
+                      <p>
+                        Recorded: {new Date(latestSnapshot.created_at).toLocaleString()}
+                      </p>
+                    )}
+                    {latestSnapshot.metadata?.model && (
+                      <p className="mt-1">Model: {latestSnapshot.metadata.model}</p>
+                    )}
+                  </div>
+                </div>
               </div>
             )}
 
             {evidence.length > 0 && (
-              <div className="border-t border-dashed border-slate-200 pt-3 space-y-2">
-                <div className="font-semibold text-slate-900">
-                  Retrieved evidence
+              <div className="border-t border-slate-100 pt-6">
+                <div className="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-3 flex items-center justify-between">
+                  <span>Retrieved evidence</span>
+                  <span className="bg-primary-50 text-primary-700 px-2 py-0.5 rounded text-[10px]">{evidence.length}</span>
                 </div>
-                <div className="space-y-2 max-h-56 overflow-y-auto pr-1">
+                <div className="space-y-3 max-h-64 overflow-y-auto pr-2 custom-scrollbar">
                   {evidence.map((item, idx) => (
                     <div
                       key={`${item.source}-${idx}`}
-                      className="border border-slate-100 rounded-xl p-2"
+                      className="border border-slate-100 bg-slate-50/50 rounded-xl p-3 hover:bg-slate-50 transition-colors"
                     >
-                      <div className="text-[11px] text-slate-400">
+                      <div className="text-[10px] uppercase tracking-wider font-bold text-primary-600 mb-1">
                         {item.source}
                       </div>
-                      <p className="text-[11px] text-slate-700 line-clamp-3">
+                      <p className="text-xs font-medium text-slate-700 leading-relaxed line-clamp-4">
                         {item.text}
                       </p>
                     </div>

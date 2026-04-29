@@ -103,21 +103,21 @@ export default function Patients() {
     });
 
   return (
-    <div className="flex gap-8">
+    <div className="animate-fade-in flex flex-col md:flex-row gap-8 pb-12">
       <div className="flex-1">
-        <div className="mb-6 flex items-center justify-between">
+        <div className="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-semibold">
+            <h1 className="text-3xl font-bold text-slate-900 tracking-tight">
               {i18n.t("nav_patients")}
             </h1>
-            <p className="text-sm text-slate-500">
+            <p className="text-sm text-slate-500 mt-1">
               {i18n.t("settings_subtitle")}
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <input
-              className="border rounded-xl px-4 py-2 w-64"
+              className="input-field py-2 w-full md:w-64"
               placeholder={
                 i18n.t("search_placeholder") || "Search name, ID or age"
               }
@@ -125,50 +125,54 @@ export default function Patients() {
               onChange={(e) => setQuery(e.target.value)}
             />
 
-            <button
-              className={`px-4 py-2 rounded-xl border ${
-                sort === "name" ? "bg-sky-100 text-sky-700" : "bg-white"
-              }`}
-              onClick={() => setSort("name")}
-            >
-              {i18n.t("name_button") || "Name"}
-            </button>
+            <div className="flex gap-2">
+              <button
+                className={`btn px-4 py-2 text-sm border transition-all duration-200 ${
+                  sort === "name" ? "bg-primary-50 text-primary-700 border-primary-200 font-medium" : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50"
+                }`}
+                onClick={() => setSort("name")}
+              >
+                {i18n.t("name_button") || "Name"}
+              </button>
 
-            <button
-              className={`px-4 py-2 rounded-xl border ${
-                sort === "last" ? "bg-sky-100 text-sky-700" : "bg-white"
-              }`}
-              onClick={() => setSort("last")}
-            >
-              {i18n.t("last_seen") || "Last seen"}
-            </button>
+              <button
+                className={`btn px-4 py-2 text-sm border transition-all duration-200 ${
+                  sort === "last" ? "bg-primary-50 text-primary-700 border-primary-200 font-medium" : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50"
+                }`}
+                onClick={() => setSort("last")}
+              >
+                {i18n.t("last_seen") || "Last seen"}
+              </button>
+            </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm divide-y border">
+        <div className="card p-0 overflow-hidden divide-y divide-slate-100/60">
           {filtered.map((p) => (
             <div
               key={p.id}
-              className={`flex items-center justify-between p-4 transition ${
-                activePatient?.id === p.id ? "bg-sky-50" : ""
+              className={`flex flex-col sm:flex-row sm:items-center justify-between p-5 transition-all duration-200 ${
+                activePatient?.id === p.id ? "bg-primary-50/50" : "hover:bg-slate-50"
               }`}
             >
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-lg font-semibold">
+                <div className={`w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold shadow-sm ${
+                  activePatient?.id === p.id ? "bg-primary-500 text-white" : "bg-primary-50 text-primary-600"
+                }`}>
                   {(p.name || "?")[0].toUpperCase()}
                 </div>
 
                 <div>
-                  <div className="text-lg font-medium">{p.name}</div>
-                  <div className="text-sm text-slate-500">
-                    {i18n.t("age_label") || "Age:"} {p.age || "—"} •{" "}
-                    {i18n.t("subject_label") || "ID:"} {p.id}
+                  <div className="text-base font-bold text-slate-800">{p.name}</div>
+                  <div className="text-[11px] font-medium uppercase tracking-wider text-slate-500 mt-0.5">
+                    {i18n.t("age_label") || "Age:"} <span className="text-slate-700">{p.age || "—"}</span> •{" "}
+                    {i18n.t("subject_label") || "ID:"} <span className="text-slate-700">{p.id}</span>
                   </div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3">
-                <div className="text-sm text-slate-500 mr-4">
+              <div className="flex items-center gap-3 mt-4 sm:mt-0">
+                <div className="text-[11px] font-medium uppercase tracking-wider text-slate-500 mr-4">
                   {p.updatedAt
                     ? `${i18n.t("last_seen") || "Last seen"} ${timeAgo(
                         p.updatedAt
@@ -177,17 +181,19 @@ export default function Patients() {
                 </div>
 
                 <button
-                  className="px-3 py-2 rounded-lg border bg-white"
+                  className="btn-ghost py-1.5 px-3 text-sm"
                   onClick={() => handleView(p)}
                 >
                   {i18n.t("view_button") || "View"}
                 </button>
 
                 <button
-                  className="px-4 py-2 rounded-lg bg-slate-900 text-white"
+                  className={`btn py-1.5 px-3 text-sm ${
+                    activePatient?.id === p.id ? "bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100" : "bg-slate-800 text-white hover:bg-slate-900 shadow-sm"
+                  }`}
                   onClick={() => handleSetActive(p)}
                 >
-                  {i18n.t("set_active") || "Set active"}
+                  {activePatient?.id === p.id ? "Active" : (i18n.t("set_active") || "Set active")}
                 </button>
               </div>
             </div>
@@ -195,10 +201,10 @@ export default function Patients() {
         </div>
       </div>
 
-      <div className="w-96">
+      <div className="w-full md:w-[380px] shrink-0">
         <div
-          className={`bg-white rounded-xl shadow-sm p-6 border transition ${
-            drawerOpen && activePatient ? "block" : "hidden"
+          className={`card sticky top-24 transition-all duration-300 ${
+            drawerOpen && activePatient ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none absolute md:relative"
           }`}
         >
           {activePatient ? (
@@ -238,17 +244,17 @@ export default function Patients() {
                 </div>
               </div>
 
-              <div className="mt-6 flex gap-3">
+              <div className="mt-8 flex gap-3">
                 <button
                   onClick={openDetailsPage}
-                  className="px-4 py-2 rounded-lg border bg-white"
+                  className="btn-ghost flex-1 justify-center"
                 >
-                  {i18n.t("open_details") || "Open details page"}
+                  {i18n.t("open_details") || "Open details"}
                 </button>
 
                 <button
                   onClick={handleDelete}
-                  className="px-4 py-2 rounded-lg bg-rose-50 text-rose-600 border"
+                  className="btn bg-rose-50 text-rose-600 border border-rose-200 hover:bg-rose-100 flex-1 justify-center"
                 >
                   {i18n.t("delete_button") || "Delete"}
                 </button>
