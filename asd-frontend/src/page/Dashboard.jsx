@@ -282,9 +282,7 @@ export default function Dashboard() {
         {/* Header row */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="flex-1 text-left md:text-center">
-            <div className="text-xs uppercase tracking-wide text-slate-500 font-semibold">
-              {SITE_NAME}
-            </div>
+
             <h1 className="text-3xl md:text-4xl font-extrabold text-sky-900 leading-tight mt-2">
               {i18n.t("dashboard_title")}
             </h1>
@@ -387,8 +385,7 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* Quick actions */}
-          <div className="md:col-span-2 card">
+          <div className="md:col-span-2 card flex flex-col">
             <div className="flex items-center gap-3">
               <div className="p-2 bg-primary-50 rounded-lg">
                 <UserPlus size={18} className="text-primary-600" />
@@ -403,7 +400,8 @@ export default function Dashboard() {
               </div>
             </div>
 
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="flex-1 flex flex-col justify-center mt-4 md:mt-8">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <button
                 onClick={() => navigate("/patient-form")}
                 className="btn bg-white border border-slate-200 text-slate-700 hover:border-primary-300 hover:bg-primary-50 hover:text-primary-700 hover:-translate-y-1 shadow-sm px-4 py-4 h-auto text-left flex flex-col items-start gap-2"
@@ -436,6 +434,7 @@ export default function Dashboard() {
                 </div>
                 <span className="font-semibold">{i18n.t("detection_short")}</span>
               </button>
+              </div>
             </div>
           </div>
 
