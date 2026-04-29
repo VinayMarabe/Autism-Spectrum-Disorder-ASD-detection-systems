@@ -244,13 +244,6 @@ export default function HowItWorks() {
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between mb-8">
           <div className="space-y-3">
-            <button
-              onClick={() => navigate(-1)}
-              className="inline-flex items-center gap-2 text-xs text-slate-600 hover:text-slate-900"
-            >
-              <ArrowLeft size={14} />
-              <span>Back</span>
-            </button>
             <div className="flex items-start gap-3">
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-sky-500 to-emerald-400 text-white flex items-center justify-center shadow-sm">
                 <Brain size={22} />

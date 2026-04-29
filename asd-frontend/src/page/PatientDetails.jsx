@@ -27,12 +27,6 @@ export default function PatientDetails() {
           <h1 className="text-xl font-semibold text-slate-800">
             Patient not found
           </h1>
-          <button
-            onClick={() => navigate("/patients")}
-            className="mt-4 px-4 py-2 rounded-lg bg-slate-900 text-white"
-          >
-            Back to Patients
-          </button>
         </div>
       </div>
     );
@@ -49,13 +43,6 @@ export default function PatientDetails() {
             Complete clinical summary of the patient
           </p>
         </div>
-
-        <button
-          onClick={() => navigate("/patients")}
-          className="px-4 py-2 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200"
-        >
-          Back to Patients
-        </button>
       </div>
 
       {/* PROFILE CARD */}
